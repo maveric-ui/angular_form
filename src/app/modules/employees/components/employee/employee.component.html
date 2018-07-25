@@ -1,2 +1,31 @@
-<!--<app-employee-form></app-employee-form>-->
-<app-employee-list></app-employee-list>
+<div class="container">
+  <header class="header">
+      <div class="container-logo">
+        <a href="#" class="logo">
+          <img [src]="images.logo" [alt]="images.logo" />
+        </a>
+      </div>
+      <nav class="container-navigation">
+        <div class="search">
+          <app-employee-search></app-employee-search>
+        </div>
+      </nav>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-item">
+      <button class="sidebar-item-component" type="button">
+        <img class="svg" [src]="images.table" [alt]="alts.table">
+      </button>
+    </div>
+    <div class="sidebar-item">
+
+    </div>
+    <div class="sidebar-item">
+
+    </div>
+    <div class="sidebar-item">
+
+    </div>
+  </aside>
+</div>

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeSearchComponent implements OnInit {
 
+  readonly imgSearch = './../../assets/img/search.svg';
+  readonly altSearch = 'search';
+
   constructor() { }
 
   ngOnInit() {

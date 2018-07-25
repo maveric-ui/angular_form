@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatInputModule,
+  MatToolbarModule
+} from '@angular/material';
 
 
 import { EmployeeComponent } from './components/employee/employee.component';
@@ -9,7 +14,10 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatToolbarModule
   ],
   declarations: [
     EmployeeComponent,
