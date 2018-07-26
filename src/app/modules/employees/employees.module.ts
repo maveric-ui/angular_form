@@ -11,6 +11,8 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { EmployeeSearchComponent } from './components/employee/employee-search/employee-search.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
+import { EmployeeMessagesComponent } from './components/employee/employee-messages/employee-messages.component';
+import { EmployeeProfileComponent } from './components/employee/employee-profile/employee-profile.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
     EmployeeComponent,
     EmployeeFormComponent,
     EmployeeSearchComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    EmployeeMessagesComponent,
+    EmployeeProfileComponent
   ],
   exports: [EmployeeComponent]
 })

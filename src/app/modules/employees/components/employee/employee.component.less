@@ -26,13 +26,28 @@
 
     .container-navigation {
       display: flex;
+      flex: 1;
+      justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      flex-wrap: nowrap;
-      padding: 0 25px 0 27px;
+      padding: 0 25px;
 
-      .search {
-        width: 500px;
+      .search-section {
+        min-width: 350px;
+      }
+
+      .user-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        .profile-filed {
+          flex: none;
+          position: relative;
+          top: 15px;
+          text-align: center;
+          margin-left: 46px;
+        }
       }
     }
   }
@@ -48,6 +63,50 @@
     .sidebar-item {
       height: 80px;
       width: inherit;
+      text-align: center;
+      line-height: 80px;
+
+      .sidebar-item-links {
+        .table-icon {
+          width: 21px;
+          height: 19px;
+          &:hover g {
+            fill: @stroke-icon-hover;
+          }
+        }
+
+        .archive-icon {
+          width: 23px;
+          height: 25px;
+          &:hover g path{
+            stroke: @stroke-icon-hover;
+          }
+          &:hover g rect{
+            fill: @stroke-icon-hover;
+          }
+        }
+
+        .email-icon {
+          width: 25px;
+          height: 19px;
+          &:hover g rect {
+            stroke: @stroke-icon-hover;
+          }
+          &:hover g rect.side {
+            fill: @stroke-icon-hover;
+          }
+        }
+
+        .graphic-icon {
+          width: 15px;
+          height: 19px;
+          &:hover g {
+            fill: @stroke-icon-hover;
+          }
+        }
+      }
+
+
     }
   }
 

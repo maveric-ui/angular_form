@@ -1,0 +1,20 @@
+<div class="container-profile">
+  <div class="container-profile-header">
+    <div class="status-indicator"></div>
+    <div class="dropdown" (click)="onDropDown()">
+      <div class="logged-user">{{loggedUser}}</div>
+      <span class="dropdown-button">
+        <svg class="icon-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
+          <g fill="#DFE5DD" fill-rule="evenodd">
+              <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
+              <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
+          </g>
+        </svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="dropdown-menu" *ngIf="dropdownState">
+    <div class="block"></div>
+  </div>
+</div>
