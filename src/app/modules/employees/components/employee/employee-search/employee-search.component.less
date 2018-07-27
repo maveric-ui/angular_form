@@ -1,15 +1,43 @@
 @import "_colors.less";
 
 .input-container {
-  width: 100%;
-  position: relative;
+  height: 22px;
 
   .input-search {
-    height: 22px;
     width: 100%;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 0 0 13px;
+    font-family: 'Helvetica', sans-serif;
+    color: @text-turtle-green;
+    // border: none;
+    display: inline-block;
+    position: relative;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+      font-family: 'Helvetica', sans-serif;
+      color: @text-light-grey;
+      font-size: 18px;
+    }
   }
 
-  .suffix-search {
-    position:absolute;
+
+  .input-search {
+
+    &:before {
+      content: ' ';
+      position: absolute;
+      background-image: url('/assets/img/search.svg');
+      background-repeat: no-repeat;
+      background-size: 28px 28px;
+      height: 27px;
+      width: 27px;
+      z-index: 99;
+    }
   }
+
 }

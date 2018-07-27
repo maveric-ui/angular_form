@@ -1,7 +1,6 @@
 @import "_colors.less";
 
 .container-profile {
-
   .container-profile-header {
     width: 100%;
     display: flex;
@@ -9,8 +8,28 @@
     flex-wrap: nowrap;
     align-items: center;
 
+    .container-message {
+      cursor: pointer;
+
+      .message-icon path {
+        stroke: @stroke-icon;
+        stroke-width: 3px;
+      }
+
+      .notification-indicator {
+        position: relative;
+        top: 6px;
+        left: 24px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background-color: @notification;
+        box-shadow: 0 1px 3px 0 rgba(116, 120, 114, 0.55);
+      }
+    }
+
     .status-indicator {
-      margin-right: 10px;
+      margin: 0 10px 0 46px;
       width: 13px;
       height: 13px;
       border-radius: 50%;
@@ -22,9 +41,10 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
+      cursor: pointer;
 
       .logged-user {
-        margin-right: 10px;
+        padding-right: 10px;
         font-family: 'Helvetica', sans-serif;
         font-size: 18px;
         color: @text-light-grey-two;
@@ -33,9 +53,10 @@
   }
 
   .dropdown-menu {
-    height: 100px;
-    width: 100px;
+    height: 400px;
+    width: 400px;
     position: absolute;
+    right: 0;
     background-color: @background-white;
   }
 

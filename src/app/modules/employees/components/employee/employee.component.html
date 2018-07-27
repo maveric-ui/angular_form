@@ -9,23 +9,15 @@
         </svg>
       </a>
     </div>
-
-    <nav class="container-navigation">
-      <div class="search-section">
-        <app-employee-search></app-employee-search>
-      </div>
-      <div class="user-section">
-        <div class="message-filed">
-          <app-employee-messages></app-employee-messages>
-        </div>
-        <div class="profile-filed">
-          <app-employee-profile></app-employee-profile>
-        </div>
-      </div>
-    </nav>
+    <div class="search-section">
+      <app-employee-search></app-employee-search>
+    </div>
+    <div class="user-section">
+      <app-employee-profile></app-employee-profile>
+    </div>
   </header>
 
-  <aside class="sidebar">
+  <nav class="sidebar">
     <div class="sidebar-item">
       <a href="#" class="sidebar-item-links">
         <svg class="table-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 19">
@@ -56,8 +48,10 @@
         <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
           <g fill="none" fill-rule="evenodd">
             <rect width="22" height="16" x="1.5" y="1.5" stroke="#DFE5DD" stroke-width="3" rx="3"></rect>
-            <rect class="side" width="13" height="2" x="1" y="5" fill="#DFE5DD" rx="1" transform="rotate(30 7.5 6)"></rect>
-            <rect class="side" width="13" height="2" x="11" y="5" fill="#DFE5DD" rx="1" transform="rotate(-30 17.5 6)"></rect>
+            <rect class="side" width="13" height="2" x="1" y="5" fill="#DFE5DD" rx="1"
+                  transform="rotate(30 7.5 6)"></rect>
+            <rect class="side" width="13" height="2" x="11" y="5" fill="#DFE5DD" rx="1"
+                  transform="rotate(-30 17.5 6)"></rect>
           </g>
         </svg>
       </a>
@@ -73,5 +67,15 @@
         </svg>
       </a>
     </div>
-  </aside>
+  </nav>
+
+
+
+  <section class="block-employee-list">
+
+
+  </section>
+
+
+
 </div>
