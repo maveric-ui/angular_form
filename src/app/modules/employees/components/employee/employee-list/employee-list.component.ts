@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Employee } from '../../../classes/employee';
+import { MatDialog } from '@angular/material';
+import { EmployeeReactiveFormComponent } from '../employee-reactive-form/employee-reactive-form.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor() { }
+  @Input() public employeeList: Employee[];
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
+  public openDialog() {
+    this.dialog.open(EmployeeReactiveFormComponent, {autoFocus: false});
+  }
 }

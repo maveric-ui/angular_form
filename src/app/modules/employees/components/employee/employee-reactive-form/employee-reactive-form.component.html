@@ -1,0 +1,42 @@
+<div class="container-reactive-form">
+  <div class="header">
+    <span class="title">Adding new employee</span>
+  </div>
+
+  <form class="form" [formGroup]="">
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-placeholder>Name</mat-placeholder>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-placeholder>Email</mat-placeholder>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <input matInput [matDatepicker]="birth" placeholder="Date of Birth">
+      <mat-datepicker-toggle matSuffix [for]="birth"></mat-datepicker-toggle>
+      <mat-datepicker #birth></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <input matInput [matDatepicker]="hire" placeholder="Hire Date">
+      <mat-datepicker-toggle matSuffix [for]="hire"></mat-datepicker-toggle>
+      <mat-datepicker #hire></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-select placeholder="Country">
+        <mat-option *ngFor="let country of countries">{{country}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="section-button">
+      <button type="submit" mat-stroked-button>Save</button>
+      <button type="button" mat-stroked-button (click)="close()">Cancel</button>
+    </div>
+
+  </form>
+</div>

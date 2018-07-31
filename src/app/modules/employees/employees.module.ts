@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
@@ -42,10 +45,14 @@ import { EmployeeFormComponent } from './components/employee/employee-form/emplo
 import { EmployeeSearchComponent } from './components/employee/employee-search/employee-search.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
 import { EmployeeProfileComponent } from './components/employee/employee-profile/employee-profile.component';
+import { EmployeeReactiveFormComponent } from './components/employee/employee-reactive-form/employee-reactive-form.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -85,8 +92,10 @@ import { EmployeeProfileComponent } from './components/employee/employee-profile
     EmployeeFormComponent,
     EmployeeSearchComponent,
     EmployeeListComponent,
-    EmployeeProfileComponent
+    EmployeeProfileComponent,
+    EmployeeReactiveFormComponent
   ],
-  exports: [EmployeeComponent]
+  exports: [EmployeeComponent],
+  entryComponents: [EmployeeReactiveFormComponent]
 })
 export class EmployeesModule { }

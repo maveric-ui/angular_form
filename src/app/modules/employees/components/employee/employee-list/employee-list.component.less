@@ -1,6 +1,9 @@
 @import "_colors.less";
+@import "_mixins.less";
 
 .container-list {
+  height: 100%;
+
   .container-list-header {
     display: flex;
     flex-direction: row;
@@ -19,18 +22,89 @@
     .btn-header-list {
       width: 93px;
       height: 28px;
-      line-height: 28px;
       border-radius: 14px;
-      font-size: 14px;
       color: @text-turtle-green;
-      font-weight: bold;
-      font-family: 'Helvetica', sans-serif;
+      line-height: 0;
 
-        .icon-add {
-          font-size: 14px;
-          height: 14px;
-          width: 14px;
+      .icon-add {
+        padding-right: 7px;
+        svg {
+          vertical-align: middle;
         }
+      }
+
+      .title {
+        color: @text-turtle-green;
+        font-weight: bold;
+        font-family: 'Helvetica', sans-serif;
+      }
+    }
+  }
+
+  .container-list-label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 30px 15px 20px;
+
+    .list-label-item {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .title {
+        text-transform: uppercase;
+        font-size: 16px;
+        color: @text-light-grey-three;
+        font-family: 'Helvetica', sans-serif;
+      }
+
+      .icon-arrow-down {
+        line-height: 13px;
+        padding: 0 5px;
+      }
+
+      .icon-arrow-up {
+        line-height: 13px;
+        padding: 0 5px;
+      }
+    }
+  }
+
+  .container-list-content {
+    height: 100%;
+
+    .container-list-content-wrap {
+      height: 78%;
+      overflow: auto;
+    }
+
+    .list-content-item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+      background-color: @background-white;
+      box-shadow: 0 0 4px 0 rgba(113, 113, 113, 0.15);
+      margin-bottom: 5px;
+      padding: 0 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .container-list-title {
+        width: 100%;
+        text-align: left;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 16px;
+        color: @text-light-grey-two;
+      }
     }
   }
 }
