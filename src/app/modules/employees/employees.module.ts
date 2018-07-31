@@ -41,7 +41,6 @@ import {
 
 
 import { EmployeeComponent } from './components/employee/employee.component';
-import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { EmployeeSearchComponent } from './components/employee/employee-search/employee-search.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
 import { EmployeeProfileComponent } from './components/employee/employee-profile/employee-profile.component';
@@ -89,7 +88,6 @@ import { EmployeeReactiveFormComponent } from './components/employee/employee-re
   ],
   declarations: [
     EmployeeComponent,
-    EmployeeFormComponent,
     EmployeeSearchComponent,
     EmployeeListComponent,
     EmployeeProfileComponent,

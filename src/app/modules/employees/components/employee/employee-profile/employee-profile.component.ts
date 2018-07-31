@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ElementRef, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-employee-profile',
@@ -7,16 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeProfileComponent implements OnInit {
 
-  loggedUser = 'Gerard Butler';
-  dropdownState: boolean;
+  public dropdownState: boolean;
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
   }
 
-  onDropDown() {
-    this.dropdownState = !this.dropdownState;
-  }
+  @HostListener('document:click', ['$event']) onDropDown(event) {
+    // workable
 
+    // if (event.target.closest('.dropdown')) {
+    //   console.log('inside');
+    //   this.dropdownState = true;
+    // } else {
+    //   this.dropdownState = false;
+    // }
+  }
 }
