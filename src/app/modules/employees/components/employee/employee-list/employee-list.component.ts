@@ -17,7 +17,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit() {
   }
 
-  public openDialog() {
+  public openNewEmployeeFrom() {
     this.dialog.open(EmployeeReactiveFormComponent, {autoFocus: false});
   }
 }

@@ -19,25 +19,20 @@
       color: @text-greyish-brown;
     }
 
-    .btn-header-list {
-      width: 93px;
+    .btn {
+      padding: 0 20px;
       height: 28px;
       border-radius: 14px;
-      color: @text-turtle-green;
       line-height: 0;
+      text-align: right;
+      font-weight: bold;
+      font-family: 'Helvetica', sans-serif;
+    }
 
-      .icon-add {
-        padding-right: 7px;
-        svg {
-          vertical-align: middle;
-        }
-      }
-
-      .title {
-        color: @text-turtle-green;
-        font-weight: bold;
-        font-family: 'Helvetica', sans-serif;
-      }
+    .btn-add {
+      width: 93px;
+      color: @text-turtle-green;
+      background: url("/assets/img/add.svg") no-repeat 20px center;
     }
   }
 
@@ -47,7 +42,7 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 30px 15px 20px;
+    padding: 25px 40px 15px 20px;
 
     .list-label-item {
       width: 100%;

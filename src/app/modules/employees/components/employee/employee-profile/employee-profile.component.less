@@ -28,20 +28,20 @@
       }
     }
 
-    .status-indicator {
-      margin: 0 10px 0 46px;
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      background-color: @indicator-on;
-    }
-
-    .dropdown {
+    .status-user-singin {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
       cursor: pointer;
+
+      .status-indicator {
+        margin: 0 10px 0 46px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: @indicator-on;
+      }
 
       .logged-user {
         padding-right: 10px;
@@ -49,6 +49,10 @@
         font-size: 18px;
         color: @text-light-grey-two;
       }
+    }
+
+    .status-user-singout {
+      margin-left: 46px;
     }
   }
 

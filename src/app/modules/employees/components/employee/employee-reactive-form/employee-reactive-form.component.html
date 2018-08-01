@@ -4,39 +4,52 @@
   </div>
 
   <form class="form" [formGroup]="">
-
     <mat-form-field class="form-item" floatLabel="never">
-      <mat-placeholder>Name</mat-placeholder>
+      <mat-placeholder class="form-placeholder">Name</mat-placeholder>
       <input matInput>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
-      <mat-placeholder>Email</mat-placeholder>
+      <mat-placeholder class="form-placeholder">Position</mat-placeholder>
       <input matInput>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
-      <input matInput [matDatepicker]="birth" placeholder="Date of Birth">
-      <mat-datepicker-toggle matSuffix [for]="birth"></mat-datepicker-toggle>
+      <mat-placeholder class="form-placeholder">Date of Birth</mat-placeholder>
+      <input matInput [matDatepicker]="birth" (click)="birth.open()">
+      <mat-datepicker-toggle matSuffix [for]="birth" ></mat-datepicker-toggle>
       <mat-datepicker #birth></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
-      <input matInput [matDatepicker]="hire" placeholder="Hire Date">
+      <mat-placeholder class="form-placeholder">Hire Date</mat-placeholder>
+      <input matInput [matDatepicker]="hire" (click)="hire.open()">
       <mat-datepicker-toggle matSuffix [for]="hire"></mat-datepicker-toggle>
-      <mat-datepicker #hire></mat-datepicker>
+      <mat-datepicker #hire ></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
-      <mat-select placeholder="Country">
-        <mat-option *ngFor="let country of countries">{{country}}</mat-option>
+      <mat-placeholder class="form-placeholder">Address</mat-placeholder>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-placeholder class="form-placeholder">City</mat-placeholder>
+      <mat-select>
+        <mat-option *ngFor="let city of cities" value="city">{{city}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-placeholder class="form-placeholder">Country</mat-placeholder>
+      <mat-select>
+        <mat-option *ngFor="let country of countries" value="country">{{country}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <div class="section-button">
-      <button type="submit" mat-stroked-button>Save</button>
-      <button type="button" mat-stroked-button (click)="close()">Cancel</button>
+      <button type="submit" class="btn btn-save" mat-stroked-button>Save</button>
+      <button type="button" class="btn btn-cancel" mat-stroked-button (click)="close()">Cancel</button>
     </div>
-
   </form>
 </div>

@@ -9,20 +9,24 @@
       </svg>
     </div>
 
-    <div class="status-indicator"></div>
-    <div class="dropdown" (click)="onDropDown($event)">
+    <div class="status-user-singin" (click)="openCard(); closeCard($event)" *ngIf="singState">
+      <div class="status-indicator"></div>
       <div class="logged-user">Gerard Butler</div>
       <span class="dropdown-button">
         <svg class="icon-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
           <g fill="#DFE5DD" fill-rule="evenodd">
-              <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-              <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
+            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
+            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
           </g>
         </svg>
       </span>
     </div>
-  </div>
 
+    <div class="status-user-singout" *ngIf="!singState">
+      <button mat-stroked-button (click)="onSingIn()">Sing In</button>
+    </div>
+
+  </div>
 
   <mat-card class="dropdown-card" *ngIf="dropdownState">
     <mat-card-header>
@@ -31,7 +35,7 @@
       <mat-card-subtitle>gerard.butler@mail.com</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <button mat-button>Sing Out</button>
+      <button mat-button (click)="onSingOut()">Sing Out</button>
     </mat-card-actions>
   </mat-card>
 </div>

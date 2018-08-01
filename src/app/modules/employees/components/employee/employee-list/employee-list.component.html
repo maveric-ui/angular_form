@@ -1,17 +1,7 @@
 <div class="container-list">
   <div class="container-list-header">
     <p class="name-header-list">Employees</p>
-    <button class="btn-header-list" mat-stroked-button (click)="openDialog()">
-      <span class="icon-add">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-          <g fill="#59C355" fill-rule="evenodd">
-            <rect width="2" height="14" x="6" rx="1"></rect>
-            <rect width="14" height="2" y="6" rx="1"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="title">Add</span>
-    </button>
+    <button class="btn btn-add" mat-stroked-button (click)="openNewEmployeeFrom()">Add</button>
   </div>
 
   <div class="container-list-label">
@@ -36,6 +26,25 @@
     </div>
     <div class="list-label-item">
       <span class="title">Name</span>
+      <span class="icon-arrow-down">
+        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
+          <g fill="#DFE5DD" fill-rule="evenodd">
+            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
+            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
+          </g>
+        </svg>
+      </span>
+      <span class="icon-arrow-up" *ngIf="false">
+        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
+          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
+            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
+            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
+          </g>
+        </svg>
+      </span>
+    </div>
+    <div class="list-label-item">
+      <span class="title">Email</span>
       <span class="icon-arrow-down">
         <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
           <g fill="#DFE5DD" fill-rule="evenodd">
@@ -117,6 +126,7 @@
       <div class="list-content-item" *ngFor="let employee of employeeList">
         <div class="container-list-title">{{employee.id}}</div>
         <div class="container-list-title">{{employee.name}}</div>
+        <div class="container-list-title">{{employee.email}}</div>
         <div class="container-list-title">{{employee.dateOfBirth | date: 'dd.MM.yyyy'}}</div>
         <div class="container-list-title">{{employee.hireDate | date: 'dd.MM.yyyy'}}</div>
         <div class="container-list-title">{{employee.country}}</div>
