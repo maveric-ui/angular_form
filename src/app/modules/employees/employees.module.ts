@@ -46,6 +46,7 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
 import { EmployeeProfileComponent } from './components/employee/employee-profile/employee-profile.component';
 import { EmployeeReactiveFormComponent } from './components/employee/employee-reactive-form/employee-reactive-form.component';
 import { EmployeeSinginFormComponent } from './components/employee/employee-singin-form/employee-singin-form.component';
+import { EmployeeListMaterialComponent } from './components/employee/employee-list-material/employee-list-material.component';
 
 @NgModule({
   imports: [
@@ -93,7 +94,8 @@ import { EmployeeSinginFormComponent } from './components/employee/employee-sing
     EmployeeListComponent,
     EmployeeProfileComponent,
     EmployeeReactiveFormComponent,
-    EmployeeSinginFormComponent
+    EmployeeSinginFormComponent,
+    EmployeeListMaterialComponent
   ],
   exports: [EmployeeComponent],
   entryComponents: [EmployeeReactiveFormComponent]
