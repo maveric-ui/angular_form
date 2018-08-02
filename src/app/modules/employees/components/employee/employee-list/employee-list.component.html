@@ -7,129 +7,71 @@
   <div class="container-list-label">
     <div class="list-label-item">
       <span class="title">Id</span>
-      <span class="icon-arrow-down">
-        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#DFE5DD" fill-rule="evenodd">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="icon-arrow-up" *ngIf="false">
-        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
+      <button name="id" type="button" class="btn btn-id btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
     </div>
+
     <div class="list-label-item">
       <span class="title">Name</span>
-      <span class="icon-arrow-down">
-        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#DFE5DD" fill-rule="evenodd">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="icon-arrow-up" *ngIf="false">
-        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
+      <button name="name" type="button" class="btn btn-name btn-arrow-down"
+              (click)="onSort()" >
+      </button>
     </div>
+
     <div class="list-label-item">
-      <span class="title">Email</span>
-      <span class="icon-arrow-down">
-        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#DFE5DD" fill-rule="evenodd">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="icon-arrow-up" *ngIf="false">
-        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
+      <span class="title">Position</span>
+      <button name="position" type="button" class="btn btn-position btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
     </div>
+
     <div class="list-label-item">
       <span class="title">Date Of Birthday</span>
-      <span class="icon-arrow-down">
-        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#DFE5DD" fill-rule="evenodd">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="icon-arrow-up" *ngIf="false">
-        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
+      <button name="dateOfBirth" type="button" class="btn btn-dateOfBirth btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
     </div>
     <div class="list-label-item">
       <span class="title">Hire date</span>
-      <span class="icon-arrow-down">
-        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#DFE5DD" fill-rule="evenodd">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="icon-arrow-up" *ngIf="false">
-        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
+      <button name="hireDate" type="button" class="btn btn-hireDate btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
     </div>
+
+    <div class="list-label-item">
+      <span class="title">Address</span>
+      <button name="address" type="button" class="btn btn-address btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
+    </div>
+
+    <div class="list-label-item">
+      <span class="title">City</span>
+      <button name="city" type="button" class="btn btn-city btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
+    </div>
+
     <div class="list-label-item">
       <span class="title">Country</span>
-      <span class="icon-arrow-down">
-        <svg class="svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#DFE5DD" fill-rule="evenodd">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
-      <span class="icon-arrow-up" *ngIf="false">
-        <svg class="svg-arrow-up" xmlns="http://www.w3.org/2000/svg" width="13" height="8" viewBox="0 0 13 8">
-          <g fill="#638054" fill-rule="evenodd" transform="rotate(180 6.5 4)">
-            <rect width="9" height="2" x="-.611" y="2.889" rx="1" transform="rotate(45 3.89 3.89)"></rect>
-            <rect width="9" height="2" x="4.389" y="2.889" rx="1" transform="rotate(-45 8.89 3.89)"></rect>
-          </g>
-        </svg>
-      </span>
+      <button name="country" type="button" class="btn btn-country btn-arrow-down"
+              (click)="onSort($event)">
+      </button>
     </div>
   </div>
 
   <div class="container-list-content">
     <div class="container-list-content-wrap">
       <div class="list-content-item" *ngFor="let employee of employeeList">
-        <div class="container-list-title">{{employee.id}}</div>
-        <div class="container-list-title">{{employee.name}}</div>
-        <div class="container-list-title">{{employee.email}}</div>
-        <div class="container-list-title">{{employee.dateOfBirth | date: 'dd.MM.yyyy'}}</div>
-        <div class="container-list-title">{{employee.hireDate | date: 'dd.MM.yyyy'}}</div>
-        <div class="container-list-title">{{employee.country}}</div>
+        <div class="list-content-title">{{employee.id}}</div>
+        <div class="list-content-title">{{employee.name}}</div>
+        <div class="list-content-title">{{employee.position}}</div>
+        <div class="list-content-title">{{employee.dateOfBirth | date: 'dd.MM.yyyy'}}</div>
+        <div class="list-content-title">{{employee.hireDate | date: 'dd.MM.yyyy'}}</div>
+        <div class="list-content-title">{{employee.address}}</div>
+        <div class="list-content-title">{{employee.city}}</div>
+        <div class="list-content-title">{{employee.country}}</div>
       </div>
     </div>
   </div>
