@@ -1,0 +1,66 @@
+@import "_colors.less";
+@import "_mixins.less";
+
+.container-list {
+  height: 100%;
+
+  .container-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .name-header-list {
+      padding: 0;
+      margin: 0;
+      font-size: 20px;
+      font-family: 'Helvetica', sans-serif;
+      font-weight: bold;
+      color: @text-greyish-brown;
+    }
+
+    .btn {
+      padding: 0 20px;
+      height: 28px;
+      border-radius: 14px;
+      line-height: 0;
+      text-align: right;
+      font-weight: bold;
+      font-family: 'Helvetica', sans-serif;
+    }
+
+    .btn-add {
+      width: 93px;
+      color: @text-turtle-green;
+      background: url("/assets/img/add.svg") no-repeat 20px center;
+    }
+  }
+
+  .example-container {
+    height: 80%;
+    overflow: auto;
+  }
+
+  table {
+    width: 100%;
+
+    th {
+      text-transform: uppercase;
+      font-size: 16px;
+      color: @text-light-grey-three;
+      font-family: 'Helvetica', sans-serif;
+      padding-right: 5px;
+      white-space: nowrap;
+    }
+
+    th.mat-sort-header-container {
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+}
