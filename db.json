@@ -199,6 +199,36 @@
       "address": "21, Dmitry Yavornytsky avenue",
       "city": "Dnipro",
       "country": "Ukraine"
+    },
+    {
+      "id": 20,
+      "name": "Kerr Taylor",
+      "position": "Project Manager",
+      "dateOfBirth": "1970-03-07T22:00:00.000Z",
+      "hireDate": "2016-06-12T22:00:00.000Z",
+      "address": "18, Lugf Gezard avenue",
+      "city": "London",
+      "country": "United Kingdom"
+    },
+    {
+      "id": 21,
+      "name": "Kerr Taylor",
+      "position": "QC enginerr",
+      "dateOfBirth": "1971-05-15T22:00:00.000Z",
+      "hireDate": "2004-02-03T22:00:00.000Z",
+      "address": "21, Dmitry Yavornytsky avenue",
+      "city": "Tokio",
+      "country": "Japan"
+    },
+    {
+      "id": 22,
+      "name": "Kerr Taylor",
+      "position": ".Net Developer",
+      "dateOfBirth": "1972-07-24T22:00:00.000Z",
+      "hireDate": "2014-11-06T22:00:00.000Z",
+      "address": "21, Dmitry Yavornytsky avenue",
+      "city": "Berlin",
+      "country": "Germany"
     }
   ]
 }

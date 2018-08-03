@@ -16,21 +16,54 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
   public soursData;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
+  sortedData: Employee[];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {
+    // this.sortedData = this.soursData.slice();
+  }
 
   ngOnInit() {
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['employeeList']) {
-      this.soursData = new MatTableDataSource(this.employeeList);
-      this.soursData.sort = this.sort;
+      // this.soursData = new MatTableDataSource(this.employeeList);
+      this.soursData = this.employeeList;
+      // this.soursData.sort = this.sort;
+      // this.sortedData = this.soursData.slice();
+      // console.log(this.soursData);
     }
   }
 
+  sortData(sort: Sort) {
+    const data = this.soursData.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
 
-  public openNewEmployeeFrom() {
+    this.soursData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'id': return compare(a.id, b.id, isAsc);
+        case 'name': return compare(a.name, b.name, isAsc);
+        case 'position': return compare(a.position, b.position, isAsc);
+        case 'dateOfBirth': return compare(a.dateOfBirth, b.dateOfBirth, isAsc);
+        case 'hireDate': return compare(a.hireDate, b.hireDate, isAsc);
+        case 'address': return compare(a.address, b.address, isAsc);
+        case 'city': return compare(a.city, b.city, isAsc);
+        case 'country': return compare(a.country, b.country, isAsc);
+        default: return 0;
+      }
+    });
+  }
+
+  openNewEmployeeFrom() {
     this.dialog.open(EmployeeReactiveFormComponent, {autoFocus: false});
   }
 
+}
+
+function compare(a, b, isAsc) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
