@@ -36,31 +36,37 @@
     }
   }
 
-  .example-container {
+  .container-list {
     height: 80%;
     overflow: auto;
+    margin-top: 25px;
   }
 
   table {
     width: 100%;
 
     th {
-      text-transform: uppercase;
       font-size: 16px;
       color: @text-light-grey-three;
       font-family: 'Helvetica', sans-serif;
-      padding-right: 5px;
       white-space: nowrap;
+      background-color: @background-light-grey-three;
+      border: none;
+
+      button {
+        text-transform: uppercase;
+      }
     }
 
-    th.mat-sort-header-container {
-      text-transform: uppercase;
+    td {
       font-size: 16px;
+      color: @text-light-grey-two;
+      font-family: 'Helvetica', sans-serif;
+      border: none;
     }
-  }
 
-  th.mat-sort-header-sorted {
-    color: black;
+    td.mat-cell {
+    }
   }
 
 }
