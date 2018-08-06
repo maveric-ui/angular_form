@@ -1,13 +1,13 @@
 @import "_colors.less";
 
 .container {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: @background-light-grey-three;
   overflow: hidden;
 
   .header {
-    width: 100%;
+    min-width: 500px;
     height: 80px;
     display: flex;
     flex-direction: row;
@@ -22,23 +22,29 @@
       text-align: center;
       line-height: 80px;
       background-color: @background-turtle-green;
-      cursor: pointer;
       flex: none;
+
+      .logo {
+        display: inline-block;
+        width: 53px;
+        height: 15px;
+        background: url("/assets/img/logo.svg") no-repeat;
+        cursor: pointer;
+      }
     }
 
     .search-section {
-      display: block;
       width: 100%;
       min-width: 300px;
       padding: 14px 25px;
     }
 
     .user-section {
-      padding-right: 25px;
       display: flex;
       flex-direction: row;
       align-items: center;
       flex: none;
+      padding-right: 25px;
     }
   }
 
