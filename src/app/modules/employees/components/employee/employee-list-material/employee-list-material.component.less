@@ -9,6 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25px;
 
     .name-header-list {
       padding: 0;
@@ -37,14 +38,14 @@
   }
 
   .container-list {
-    height: 80%;
+    height: 83vh;
     overflow: auto;
-    margin-top: 25px;
   }
 
   .mat-table {
     width: 100%;
     table-layout: fixed;
+
 
     th.mat-header-cell {
       font-size: 16px;
@@ -71,15 +72,21 @@
       }
     }
 
+    tr.mat-row {
+      height: 40px;
+    }
+
     td.mat-cell {
       font-size: 16px;
       text-align: left;
       color: @text-light-grey-two;
       font-family: 'Helvetica', sans-serif;
       border: none;
-      overflow: hidden;
       white-space: nowrap;
+      overflow: hidden;
       text-overflow: ellipsis;
+      border-bottom: 5px solid @background-light-grey-three;
+
 
       &:first-child {
         padding-left: 20px;
@@ -88,6 +95,22 @@
       &:last-child {
         padding-right: 20px;
       }
+    }
+
+    .cell-id {
+      width: 36px;
+    }
+
+    .cell-dateOfBirth {
+      width: 143px;
+    }
+
+    .cell-hireDate {
+      width: 107px;
+    }
+
+    .cell-city {
+      padding-left: 50px;
     }
   }
 }

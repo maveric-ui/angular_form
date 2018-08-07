@@ -1,5 +1,9 @@
 @import "_colors.less";
 
+.cdk-overlay-container {
+
+}
+
 .mat-dialog-container {
   padding: 0;
   border-radius: 11px;
@@ -21,12 +25,11 @@
   0 3px 14px 2px rgba(113, 113, 113, 0.15) !important;
 }
 
-.container-reactive-form {
+.container-add-form {
   height: 100%;
   width: 580px;
   min-width: 580px;
   padding: 30px;
-  overflow-y: auto;
 
   .header {
     .title {
@@ -99,8 +102,9 @@
       .btn-save {
         width: 96px;
         margin-right: 15px;
-        color: @text-turtle-green;
+        color: @text-white;
         background: url("/assets/img/save.svg") no-repeat 20px center;
+        background-color: @background-turtle-green;
       }
 
       .btn-cancel {

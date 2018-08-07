@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { EmployeeSinginFormComponent } from '../employee-singin-form/employee-singin-form.component';
 
 @Component({
   selector: 'app-employee-profile',
@@ -11,7 +13,7 @@ export class EmployeeProfileComponent implements OnInit {
   public dropdownState: boolean;
   public singState: boolean;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -21,7 +23,7 @@ export class EmployeeProfileComponent implements OnInit {
   }
 
   @HostListener('document:click', ['$event']) closeCard(event) {
-    if (event.target.closest('.status-user-singin')) {
+    if (event.target.closest('.status-user-singout')) {
       return;
     } else if (event.target.closest('.dropdown-card')) {
       return;
@@ -35,7 +37,8 @@ export class EmployeeProfileComponent implements OnInit {
   }
 
   onSingIn() {
-    this.singState = !this.singState;
+    this.dialog.open(EmployeeSinginFormComponent, {autoFocus: false});
+    // this.singState = !this.singState;
   }
 
 }

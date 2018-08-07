@@ -1,8 +1,7 @@
 import {Component, Input, OnInit, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges} from '@angular/core';
 import { Employee } from '../../../classes/employee';
-import { MatDialog, MatSort, MatTableDataSource, Sort } from '@angular/material';
-import { EmployeeReactiveFormComponent } from '../employee-reactive-form/employee-reactive-form.component';
-
+import { MatDialog, MatSort, Sort } from '@angular/material';
+import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form.component';
 
 @Component({
   selector: 'app-employee-list-material',
@@ -59,7 +58,7 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
   }
 
   openNewEmployeeFrom() {
-    this.dialog.open(EmployeeReactiveFormComponent, {autoFocus: false});
+    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
   }
 
 }

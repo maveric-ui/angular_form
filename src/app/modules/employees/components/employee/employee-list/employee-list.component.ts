@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, ChangeDetectionStrategy, AfterContentInit, AfterViewInit} from '@angular/core';
 import {Employee} from '../../../classes/employee';
 import {MatDialog, Sort} from '@angular/material';
-import {EmployeeReactiveFormComponent} from '../employee-reactive-form/employee-reactive-form.component';
+import {EmployeeAddFormComponent} from '../employee-add-form/employee-add-form.component';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -44,7 +44,7 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
   }
 
   public openNewEmployeeFrom() {
-    this.dialog.open(EmployeeReactiveFormComponent, {autoFocus: false});
+    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
   }
 
 

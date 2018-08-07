@@ -1,4 +1,4 @@
-<div class="container-reactive-form">
+<div class="container-add-form">
   <div class="header">
     <span class="title">Adding new employee</span>
   </div>
@@ -47,9 +47,9 @@
       </mat-select>
     </mat-form-field>
 
-    <div class="section-button">
-      <button type="submit" class="btn btn-save" mat-stroked-button>Save</button>
+    <mat-dialog-actions class="section-button">
+      <button type="submit" class="btn btn-save" mat-raised-button>Save</button>
       <button type="button" class="btn btn-cancel" mat-stroked-button (click)="close()">Cancel</button>
-    </div>
+    </mat-dialog-actions>
   </form>
 </div>

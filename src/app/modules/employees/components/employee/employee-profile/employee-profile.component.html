@@ -9,7 +9,11 @@
       </svg>
     </div>
 
-    <div class="status-user-singin" (click)="openCard(); closeCard($event)" *ngIf="singState">
+    <div class="status-user-singin" *ngIf="!singState">
+      <button class="btn btn-singin" mat-stroked-button (click)="onSingIn()">Sing In</button>
+    </div>
+
+    <div class="status-user-singout" (click)="openCard(); closeCard($event)" *ngIf="singState">
       <div class="status-indicator"></div>
       <div class="logged-user">Gerard Butler</div>
       <span class="dropdown-button">
@@ -21,11 +25,6 @@
         </svg>
       </span>
     </div>
-
-    <div class="status-user-singout" *ngIf="!singState">
-      <button mat-stroked-button (click)="onSingIn()">Sing In</button>
-    </div>
-
   </div>
 
   <mat-card class="dropdown-card" *ngIf="dropdownState">

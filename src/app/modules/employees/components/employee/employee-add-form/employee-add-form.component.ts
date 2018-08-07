@@ -3,16 +3,16 @@ import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-employee-reactive-form',
-  templateUrl: './employee-reactive-form.component.html',
-  styleUrls: ['./employee-reactive-form.component.less'],
+  templateUrl: './employee-add-form.component.html',
+  styleUrls: ['./employee-add-form.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeReactiveFormComponent implements OnInit {
+export class EmployeeAddFormComponent implements OnInit {
 
   public countries: string[];
   public cities: string[];
 
-  constructor(private matDialogRef: MatDialogRef<EmployeeReactiveFormComponent> ) { }
+  constructor(private matDialogRef: MatDialogRef<EmployeeAddFormComponent> ) { }
 
   ngOnInit() {
     this.countries = ['Ukraine', 'United Kingdom', 'Japan', 'Germany', 'USA'];

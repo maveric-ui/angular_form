@@ -1,3 +1,23 @@
-<p>
-  employee-singin-form works!
-</p>
+<div class="container-singin-form">
+  <div class="header">
+    <span class="title">Sing in</span>
+  </div>
+
+  <form class="form" [formGroup]="">
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-placeholder class="form-placeholder">Name</mat-placeholder>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="form-item" floatLabel="never">
+      <mat-placeholder class="form-placeholder">Password</mat-placeholder>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-dialog-actions class="section-button">
+      <button type="submit" class="btn btn-save" mat-raised-button>Sing In</button>
+      <button type="button" class="btn btn-cancel" mat-stroked-button (click)="close()">Cancel</button>
+    </mat-dialog-actions>
+
+  </form>
+</div>

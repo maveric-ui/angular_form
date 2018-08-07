@@ -1,0 +1,10 @@
+{
+  "accounts": [
+    {
+      "id": 0,
+      "name": "test",
+      "password": "test",
+      "status": "admin"
+    }
+  ]
+}

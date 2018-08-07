@@ -39,14 +39,14 @@ import {
   MatStepperModule,
 } from '@angular/material';
 
-
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeSearchComponent } from './components/employee/employee-search/employee-search.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
 import { EmployeeProfileComponent } from './components/employee/employee-profile/employee-profile.component';
-import { EmployeeReactiveFormComponent } from './components/employee/employee-reactive-form/employee-reactive-form.component';
+import { EmployeeAddFormComponent } from './components/employee/employee-add-form/employee-add-form.component';
 import { EmployeeSinginFormComponent } from './components/employee/employee-singin-form/employee-singin-form.component';
 import { EmployeeListMaterialComponent } from './components/employee/employee-list-material/employee-list-material.component';
+import { NotFoundedComponent } from '../main/components/not-founded/not-founded.component';
 
 @NgModule({
   imports: [
@@ -86,18 +86,22 @@ import { EmployeeListMaterialComponent } from './components/employee/employee-li
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatStepperModule
+    MatStepperModule,
   ],
   declarations: [
     EmployeeComponent,
     EmployeeSearchComponent,
     EmployeeListComponent,
     EmployeeProfileComponent,
-    EmployeeReactiveFormComponent,
+    EmployeeAddFormComponent,
     EmployeeSinginFormComponent,
-    EmployeeListMaterialComponent
+    EmployeeListMaterialComponent,
+    NotFoundedComponent
   ],
   exports: [EmployeeComponent],
-  entryComponents: [EmployeeReactiveFormComponent]
+  entryComponents: [
+    EmployeeAddFormComponent,
+    EmployeeSinginFormComponent
+  ]
 })
 export class EmployeesModule { }
