@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
 import { EmployeeListMaterialComponent } from '../employees/components/employee/employee-list-material/employee-list-material.component';
 import { NotFoundedComponent } from './components/not-founded/not-founded.component';
 
+const childRoutes: Routes = [
+  {path: 'employee-list', component: EmployeeListMaterialComponent},
+];
 
 const mainRoutes: Routes = [
-  {path: '', component: MainComponent, pathMatch: 'full'},
-  {path: 'employee-list', component: EmployeeListMaterialComponent},
+  {path: '', redirectTo: '/main', pathMatch: 'full'},
+  {path: 'main', children: childRoutes},
   {path: '**', component: NotFoundedComponent}
-
 ];
 
 @NgModule({
@@ -18,6 +19,7 @@ const mainRoutes: Routes = [
     CommonModule,
     RouterModule.forRoot(mainRoutes)
   ],
+  exports: [RouterModule],
   declarations: []
 })
 export class MainRoutingModule { }

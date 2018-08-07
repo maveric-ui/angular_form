@@ -40,9 +40,7 @@ import {
 } from '@angular/material';
 
 import { EmployeeComponent } from './components/employee/employee.component';
-import { EmployeeSearchComponent } from './components/employee/employee-search/employee-search.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
-import { EmployeeProfileComponent } from './components/employee/employee-profile/employee-profile.component';
 import { EmployeeAddFormComponent } from './components/employee/employee-add-form/employee-add-form.component';
 import { EmployeeSinginFormComponent } from './components/employee/employee-singin-form/employee-singin-form.component';
 import { EmployeeListMaterialComponent } from './components/employee/employee-list-material/employee-list-material.component';
@@ -90,9 +88,7 @@ import { NotFoundedComponent } from '../main/components/not-founded/not-founded.
   ],
   declarations: [
     EmployeeComponent,
-    EmployeeSearchComponent,
     EmployeeListComponent,
-    EmployeeProfileComponent,
     EmployeeAddFormComponent,
     EmployeeSinginFormComponent,
     EmployeeListMaterialComponent,
