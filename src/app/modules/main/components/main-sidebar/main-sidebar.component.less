@@ -1,0 +1,55 @@
+@import "_colors.less";
+
+.sidebar {
+  width: 80px;
+  height: 100%;
+  background-color: @background-white;
+  box-shadow: 2px 0 4px 0 rgba(113, 113, 113, 0.15);
+
+  .sidebar-item {
+    height: 80px;
+    width: inherit;
+    text-align: center;
+    line-height: 80px;
+
+    .sidebar-item-links {
+      .table-icon {
+        width: 21px;
+        height: 19px;
+        &:hover g {
+          fill: @stroke-icon-hover;
+        }
+      }
+
+      .archive-icon {
+        width: 23px;
+        height: 25px;
+        &:hover g path {
+          stroke: @stroke-icon-hover;
+        }
+        &:hover g rect {
+          fill: @stroke-icon-hover;
+        }
+      }
+
+      .email-icon {
+        width: 25px;
+        height: 19px;
+        &:hover g rect {
+          stroke: @stroke-icon-hover;
+        }
+        &:hover g rect.side {
+          fill: @stroke-icon-hover;
+        }
+      }
+
+      .graphic-icon {
+        width: 15px;
+        height: 19px;
+        &:hover g {
+          fill: @stroke-icon-hover;
+        }
+      }
+    }
+  }
+}
