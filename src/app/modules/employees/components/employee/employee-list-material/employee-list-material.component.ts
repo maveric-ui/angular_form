@@ -17,9 +17,7 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
   sortedData: Employee[];
 
-  constructor(public dialog: MatDialog) {
-    // this.sortedData = this.soursData.slice();
-  }
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
   }

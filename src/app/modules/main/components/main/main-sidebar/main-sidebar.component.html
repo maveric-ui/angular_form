@@ -1,6 +1,6 @@
 <nav class="sidebar">
   <div class="sidebar-item">
-    <a routerLink="/employee-list" class="sidebar-item-links">
+    <a [routerLink]="['/main/employee-list']" routerLinkActive="link-active" class="sidebar-item-links">
       <svg class="table-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 19">
         <g fill="#DFE5DD" fill-rule="evenodd">
           <rect width="15" height="3" rx="1.5"></rect>
@@ -25,7 +25,7 @@
     </a>
   </div>
   <div class="sidebar-item">
-    <a href="#" class="sidebar-item-links">
+    <a routerLink="/main/employee-email" routerLinkActive="link-active" class="sidebar-item-links">
       <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 19">
         <g fill="none" fill-rule="evenodd">
           <rect width="22" height="16" x="1.5" y="1.5" stroke="#DFE5DD" stroke-width="3" rx="3"></rect>

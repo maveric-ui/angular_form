@@ -45,6 +45,7 @@ import { EmployeeAddFormComponent } from './components/employee/employee-add-for
 import { EmployeeSinginFormComponent } from './components/employee/employee-singin-form/employee-singin-form.component';
 import { EmployeeListMaterialComponent } from './components/employee/employee-list-material/employee-list-material.component';
 import { NotFoundedComponent } from '../main/components/not-founded/not-founded.component';
+import { EmployeeEmailComponent } from './components/employee/employee-email/employee-email.component';
 
 @NgModule({
   imports: [
@@ -92,7 +93,8 @@ import { NotFoundedComponent } from '../main/components/not-founded/not-founded.
     EmployeeAddFormComponent,
     EmployeeSinginFormComponent,
     EmployeeListMaterialComponent,
-    NotFoundedComponent
+    NotFoundedComponent,
+    EmployeeEmailComponent
   ],
   exports: [EmployeeComponent],
   entryComponents: [
