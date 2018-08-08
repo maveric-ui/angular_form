@@ -5,9 +5,9 @@ import { MainComponent } from './modules/main/components/main/main.component';
 import { NotFoundedComponent } from './modules/main/components/not-founded/not-founded.component';
 
 const appRouter: Routes = [
-  {path: '', redirectTo: '/main', pathMatch: 'full'},
   {path: 'main', component: MainComponent},
-  {path: '**', component: NotFoundedComponent, pathMatch: 'full'}
+  {path: '', redirectTo: '/main', pathMatch: 'full'},
+  {path: '**', component: NotFoundedComponent}
 ];
 
 @NgModule({
