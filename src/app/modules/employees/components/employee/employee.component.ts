@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Employee } from '../../classes/employee';
 import { EmployeesDataService } from '../../services/employees-data.service';
 import { Subscription } from 'rxjs';
+import { AuthMainService } from '../../../main/services/auth-main.service';
+import { User } from '../../../main/classes/user';
 
 
 @Component({
@@ -20,7 +22,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.getEmployeeData();
   }
 
-  getEmployeeData() {
+  private getEmployeeData() {
     this.subscribe = this.employeesDataService.getEmployees().subscribe((data: Employee[]) => {
       this.employees = data;
     });

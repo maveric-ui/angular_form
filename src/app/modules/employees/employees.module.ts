@@ -26,6 +26,7 @@ import { EmployeeAddFormComponent } from './components/employee/employee-add-for
 import { EmployeeSignInFormComponent } from './components/employee/employee-signin-form/employee-signin-form.component';
 import { EmployeeListMaterialComponent } from './components/employee/employee-list-material/employee-list-material.component';
 import { NotFoundedComponent } from '../main/components/not-founded/not-founded.component';
+import { EmployeesDataService } from './services/employees-data.service';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { NotFoundedComponent } from '../main/components/not-founded/not-founded.
     NotFoundedComponent
   ],
   exports: [EmployeeComponent],
+  providers: [EmployeesDataService],
   entryComponents: [
     EmployeeAddFormComponent,
     EmployeeSignInFormComponent

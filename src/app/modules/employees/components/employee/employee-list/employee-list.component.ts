@@ -14,8 +14,8 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
 
   @Input() public employeeList: Employee[];
   private stateSort: boolean;
-  public sortOrder: string = 'ASC';
-  public sortField: string = 'position';
+  public sortOrder = 'ASC';
+  public sortField = 'position';
   public sortedData: Employee[];
 
   constructor(public dialog: MatDialog) {
@@ -28,7 +28,6 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
   }
-
 
   compare(sortField) {
 

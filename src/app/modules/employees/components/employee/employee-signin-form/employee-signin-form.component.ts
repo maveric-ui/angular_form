@@ -1,15 +1,19 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from '../../../../main/classes/user';
+import {AuthMainService} from '../../../../main/services/auth-main.service';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-employee-singin-form',
+  selector: 'app-employee-signin-form',
   templateUrl: './employee-signin-form.component.html',
   styleUrls: ['./employee-signin-form.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeSignInFormComponent implements OnInit {
+export class EmployeeSignInFormComponent implements OnInit, OnChanges {
 
+  @Input() public userList: User[];
   public signInForm: FormGroup;
   public errorMessages = {
     required: 'This field is required'
@@ -18,7 +22,14 @@ export class EmployeeSignInFormComponent implements OnInit {
   public get name() { return this.signInForm.get('name'); }
   public get password() { return this.signInForm.get('password'); }
 
-  constructor(private matDialogRef: MatDialogRef<EmployeeSignInFormComponent>, private fb: FormBuilder) { }
+  constructor(private matDialogRef: MatDialogRef<EmployeeSignInFormComponent>,
+              private fb: FormBuilder,
+              private authMainService: AuthMainService,
+              private router: Router
+              ) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+  }
 
   ngOnInit() {
     this.initSingInForm();
@@ -35,7 +46,19 @@ export class EmployeeSignInFormComponent implements OnInit {
     });
   }
 
-  onSingIn(user) {
+  private authUserValidation() {
+    const valFromUserFrom = this.signInForm.value;
+
+    if (valFromUserFrom.name && valFromUserFrom.password) {
+      this.authMainService.signIn(valFromUserFrom.name, valFromUserFrom.password)
+        .subscribe(() => {
+          console.log('User logged');
+          this.router.navigateByUrl('main/employee');
+        });
+    }
+  }
+
+  onSingIn() {
     const controls = this.signInForm.controls;
 
     if (!this.signInForm.valid) {
@@ -48,7 +71,7 @@ export class EmployeeSignInFormComponent implements OnInit {
       return;
     }
 
-    console.log(user);
+    this.authUserValidation();
     this.matDialogRef.close();
   }
 

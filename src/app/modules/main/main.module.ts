@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatButtonToggleModule,
@@ -27,6 +28,7 @@ import { EmployeesModule } from '../employees/employees.module';
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,

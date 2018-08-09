@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
 import { Employee } from '../../../classes/employee';
 import { MatDialog, MatSort, Sort } from '@angular/material';
 import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form.component';
