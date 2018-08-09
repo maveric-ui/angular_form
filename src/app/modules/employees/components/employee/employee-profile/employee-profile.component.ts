@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { EmployeeSinginFormComponent } from '../employee-singin-form/employee-singin-form.component';
+import { EmployeeSignInFormComponent } from '../employee-signin-form/employee-signin-form.component';
 
 @Component({
   selector: 'app-employee-profile',
@@ -37,7 +37,7 @@ export class EmployeeProfileComponent implements OnInit {
   }
 
   onSingIn() {
-    this.dialog.open(EmployeeSinginFormComponent, {autoFocus: false});
+    this.dialog.open(EmployeeSignInFormComponent, {autoFocus: false});
   }
 
 }

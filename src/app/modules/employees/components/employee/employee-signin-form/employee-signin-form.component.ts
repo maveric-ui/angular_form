@@ -4,11 +4,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-singin-form',
-  templateUrl: './employee-singin-form.component.html',
-  styleUrls: ['./employee-singin-form.component.less'],
+  templateUrl: './employee-signin-form.component.html',
+  styleUrls: ['./employee-signin-form.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeSinginFormComponent implements OnInit {
+export class EmployeeSignInFormComponent implements OnInit {
 
   public signInForm: FormGroup;
   public errorMessages = {
@@ -18,7 +18,7 @@ export class EmployeeSinginFormComponent implements OnInit {
   public get name() { return this.signInForm.get('name'); }
   public get password() { return this.signInForm.get('password'); }
 
-  constructor(private matDialogRef: MatDialogRef<EmployeeSinginFormComponent>, private fb: FormBuilder) { }
+  constructor(private matDialogRef: MatDialogRef<EmployeeSignInFormComponent>, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.initSingInForm();

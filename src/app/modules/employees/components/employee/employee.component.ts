@@ -21,7 +21,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
 
   getEmployeeData() {
-    this.subscribe = this.employeesDataService.getEmployess().subscribe((data: Employee[]) => {
+    this.subscribe = this.employeesDataService.getEmployees().subscribe((data: Employee[]) => {
       this.employees = data;
     });
   }
