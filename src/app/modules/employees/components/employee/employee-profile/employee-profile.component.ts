@@ -38,7 +38,6 @@ export class EmployeeProfileComponent implements OnInit {
 
   onSingIn() {
     this.dialog.open(EmployeeSinginFormComponent, {autoFocus: false});
-    // this.singState = !this.singState;
   }
 
 }

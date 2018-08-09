@@ -24,7 +24,7 @@ export class EmployeeSinginFormComponent implements OnInit {
     this.initSingInForm();
   }
 
-  private initSingInForm() {
+  private initSingInForm(): void {
     this.signInForm = this.fb.group({
       name: [null, [
         Validators.required
@@ -49,9 +49,10 @@ export class EmployeeSinginFormComponent implements OnInit {
     }
 
     console.log(user);
+    this.matDialogRef.close();
   }
 
-  close() {
+  close(): void {
     this.matDialogRef.close();
   }
 
