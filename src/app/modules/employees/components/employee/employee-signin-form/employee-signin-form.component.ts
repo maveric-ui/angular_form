@@ -46,15 +46,25 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     });
   }
 
+  // console.log('User logged');
+  // this.router.navigateByUrl('main/employee');
+
   private authUserValidation() {
     const valFromUserFrom = this.signInForm.value;
 
     if (valFromUserFrom.name && valFromUserFrom.password) {
-      this.authMainService.signIn(valFromUserFrom.name, valFromUserFrom.password)
-        .subscribe(() => {
-          console.log('User logged');
-          this.router.navigateByUrl('main/employee');
-        });
+      this.authMainService.signIn().subscribe(
+        (user) => {
+          user.map((u) => {
+            if (u.name === valFromUserFrom.name && u.password === valFromUserFrom.password) {
+              console.log('User logged');
+              this.router.navigateByUrl('main/employee');
+            } else {
+              console.error('error');
+            }
+          });
+        }
+      );
     }
   }
 

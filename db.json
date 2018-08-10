@@ -240,5 +240,13 @@
       "city": "Evergreen",
       "country": "Virgin Islands"
     }
+  ],
+  "accounts": [
+    {
+      "id": 0,
+      "name": "test",
+      "password": "test",
+      "status": "admin"
+    }
   ]
 }
