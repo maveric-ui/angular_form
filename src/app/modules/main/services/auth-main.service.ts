@@ -12,6 +12,8 @@ export class AuthMainService {
 
   private url = environment.url;
 
+  redirectUrl: string;
+
   constructor(private http: HttpClient) {
   }
 

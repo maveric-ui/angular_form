@@ -247,6 +247,12 @@
       "name": "test",
       "password": "test",
       "status": "admin"
+    },
+    {
+      "id": 1,
+      "name": "aaa",
+      "password": "aaa",
+      "status": "employee"
     }
   ]
 }

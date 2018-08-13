@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { EmployeeComponent } from '../employees/components/employee/employee.component';
 import { MailComponent } from '../mail/components/mail/mail.component';
+import { AuthGuard } from './services/auth.guard';
+
 
 
 const childRouters: Routes = [
@@ -12,7 +14,7 @@ const childRouters: Routes = [
 ];
 
 const mainRoutes: Routes = [
-  {path: 'main', component: MainComponent, children: childRouters },
+  {path: 'main', component: MainComponent, canActivate: [AuthGuard], children: childRouters },
 
 ];
 

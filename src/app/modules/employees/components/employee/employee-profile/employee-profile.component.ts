@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, DoCheck } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { EmployeeSignInFormComponent } from '../employee-signin-form/employee-signin-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-profile',
@@ -8,14 +9,25 @@ import { EmployeeSignInFormComponent } from '../employee-signin-form/employee-si
   styleUrls: ['./employee-profile.component.less']
 })
 
-export class EmployeeProfileComponent implements OnInit {
+export class EmployeeProfileComponent implements OnInit, DoCheck {
 
   public dropdownState: boolean;
-  public singState: boolean;
+  public isSignIn: boolean;
+  public nameLoggedUser: string
+  public msgIdicatorState: boolean;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  ngDoCheck() {
+    const userToken = sessionStorage.getItem('userToken');
+    if (userToken) {
+      this.isSignIn = true;
+      this.msgIdicatorState = true;
+      this.nameLoggedUser = userToken;
+    }
   }
 
   openCard() {
@@ -33,7 +45,10 @@ export class EmployeeProfileComponent implements OnInit {
 
   onSingOut() {
     this.dropdownState = false;
-    this.singState = !this.singState;
+    this.isSignIn = false;
+    this.msgIdicatorState = false;
+    sessionStorage.removeItem('userToken');
+    this.router.navigateByUrl('main');
   }
 
   onSingIn() {

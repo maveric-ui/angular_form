@@ -56,7 +56,7 @@ import { EmployeesDataService } from './services/employees-data.service';
     EmployeeAddFormComponent,
     EmployeeSignInFormComponent,
     EmployeeListMaterialComponent,
-    NotFoundedComponent
+    NotFoundedComponent,
   ],
   exports: [EmployeeComponent],
   providers: [EmployeesDataService],

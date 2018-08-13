@@ -9,8 +9,11 @@
       <mat-placeholder class="form-placeholder">Name</mat-placeholder>
       <input type="text" matInput [formControl]="name" required >
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-        <mat-error *ngIf="name.hasError('required')">
+        <mat-error *ngIf="signInForm.hasError('required')">
           {{errorMessages.required}}
+        </mat-error>
+        <mat-error *ngIf="name.hasError('invalidValues')">
+          {{errorMessages.invalidValues}}
         </mat-error>
       </mat-error>
     </mat-form-field>
@@ -21,6 +24,9 @@
       <mat-error *ngIf="password.invalid && (password.dirty || name.touched)">
         <mat-error *ngIf="password.hasError('required')">
           {{errorMessages.required}}
+        </mat-error>
+        <mat-error *ngIf="password.hasError('invalidValues')">
+          {{errorMessages.invalidValues}}
         </mat-error>
       </mat-error>
     </mat-form-field>
