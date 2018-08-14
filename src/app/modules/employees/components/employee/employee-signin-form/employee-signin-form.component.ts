@@ -53,21 +53,21 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     });
   }
 
-  protected authUserValidation(valUser) {
-    const valFromUserFrom = valUser;
 
-    if (valFromUserFrom.name && valFromUserFrom.password) {
-      this.authMainService.signIn(valFromUserFrom.name).subscribe(
+  protected authUserValidation(signInVal): void {
+    if (signInVal.name && signInVal.password) {
+      this.authMainService.signIn(signInVal.name).subscribe(
         (user) => {
           if (user.length === 0) {
             this.signInForm.controls['name'].setErrors({'invalidValues': true});
+            this.signInForm.controls['password'].setErrors({'invalidValues': true});
           }
           user.map((u) => {
-            if (u.password === valFromUserFrom.password) {
+            if (u.password === signInVal.password) {
               const token = `${u.name}`;
               sessionStorage.setItem('userToken', token);
               this.router.navigateByUrl('main/employee');
-              // this.matDialogRef.close();
+              this.matDialogRef.close();
             } else {
               this.signInForm.controls['password'].setErrors({'invalidValues': true});
             }
@@ -77,7 +77,7 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     }
   }
 
-  onSingIn(valUser) {
+  onSingIn(signInVal) {
     const controls = this.signInForm.controls;
 
     if (!this.signInForm.valid) {
@@ -89,7 +89,7 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
       }
       return;
     }
-    this.authUserValidation(valUser);
+    this.authUserValidation(signInVal);
   }
 
   close(): void {

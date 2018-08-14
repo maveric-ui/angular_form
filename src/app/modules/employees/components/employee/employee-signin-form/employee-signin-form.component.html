@@ -7,7 +7,7 @@
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Name</mat-placeholder>
-      <input type="text" matInput [formControl]="name" required title="name">
+      <input type="text" matInput [formControl]="name" title="name" required>
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
         <mat-error *ngIf="name.hasError('required')">
           {{errorMessages.required}}
@@ -20,7 +20,7 @@
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Password</mat-placeholder>
-      <input type="password" matInput id="password" formControlName="password" required title="password">
+      <input type="password" matInput id="password" formControlName="password" title="password" required>
       <mat-error *ngIf="password.invalid && (password.dirty || name.touched)">
         <mat-error *ngIf="password.hasError('required')">
           {{errorMessages.required}}
