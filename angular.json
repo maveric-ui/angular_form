@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less",
-              "./node_modules/simplebar/dist/simplebar.css"
+              "src/styles.less"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

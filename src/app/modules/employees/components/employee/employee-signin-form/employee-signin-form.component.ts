@@ -1,9 +1,10 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../../../main/classes/user';
 import { AuthMainService } from '../../../../main/services/auth-main.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-employee-signin-form',
@@ -20,13 +21,19 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     invalidValues: 'Name or password is not correct'
   };
 
-  public get name() { return this.signInForm.get('name'); }
-  public get password() { return this.signInForm.get('password'); }
+  public get name() {
+    return this.signInForm.get('name');
+  }
+
+  public get password() {
+    return this.signInForm.get('password');
+  }
 
   constructor(private matDialogRef: MatDialogRef<EmployeeSignInFormComponent>,
               private fb: FormBuilder,
               private authMainService: AuthMainService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnChanges(changes: SimpleChanges) {
   }
@@ -46,20 +53,22 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     });
   }
 
-  protected authUserValidation() {
-    const valFromUserFrom = this.signInForm.value;
+  protected authUserValidation(valUser) {
+    const valFromUserFrom = valUser;
 
     if (valFromUserFrom.name && valFromUserFrom.password) {
-      this.authMainService.signIn().subscribe(
+      this.authMainService.signIn(valFromUserFrom.name).subscribe(
         (user) => {
+          if (user.length === 0) {
+            this.signInForm.controls['name'].setErrors({'invalidValues': true});
+          }
           user.map((u) => {
-            if (u.name === valFromUserFrom.name && u.password === valFromUserFrom.password) {
+            if (u.password === valFromUserFrom.password) {
               const token = `${u.name}`;
               sessionStorage.setItem('userToken', token);
               this.router.navigateByUrl('main/employee');
               // this.matDialogRef.close();
             } else {
-              this.signInForm.controls['name'].setErrors({'invalidValues': true});
               this.signInForm.controls['password'].setErrors({'invalidValues': true});
             }
           });
@@ -68,7 +77,7 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     }
   }
 
-  onSingIn() {
+  onSingIn(valUser) {
     const controls = this.signInForm.controls;
 
     if (!this.signInForm.valid) {
@@ -80,7 +89,7 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
       }
       return;
     }
-    this.authUserValidation();
+    this.authUserValidation(valUser);
   }
 
   close(): void {

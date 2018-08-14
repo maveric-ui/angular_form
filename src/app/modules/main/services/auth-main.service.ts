@@ -17,8 +17,8 @@ export class AuthMainService {
   constructor(private http: HttpClient) {
   }
 
-  signIn(): Observable<User[]> {
-    const urlUser = `${this.url}/accounts`;
+  signIn(name: string): Observable<User[]> {
+    const urlUser = `${this.url}/accounts?name=${name}`;
     return this.http.get<User[]>(urlUser);
   }
 
