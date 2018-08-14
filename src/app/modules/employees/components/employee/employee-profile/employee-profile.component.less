@@ -9,22 +9,27 @@
     align-items: center;
 
     .container-message {
-      cursor: pointer;
-
-      .message-icon path {
-        stroke: @stroke-icon;
-        stroke-width: 3px;
-      }
+      display: flex;
+      flex-direction: row;
 
       .notification-indicator {
         position: relative;
-        top: 6px;
-        left: 24px;
+        bottom: 5px;
+        left: 35px;
         width: 11px;
         height: 11px;
         border-radius: 50%;
         background-color: @notification;
         box-shadow: 0 1px 3px 0 rgba(116, 120, 114, 0.55);
+      }
+
+      .icon-message {
+        background: url("/assets/img/message.svg") no-repeat;
+        width: 31px;
+        height: 31px;
+        stroke: @stroke-icon;
+        stroke-width: 3px;
+        cursor: pointer;
       }
     }
 
@@ -49,10 +54,11 @@
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
+      margin-left: 46px;
       cursor: pointer;
 
       .status-indicator {
-        margin: 0 10px 0 46px;
+        margin-right: 10px;
         width: 13px;
         height: 13px;
         border-radius: 50%;

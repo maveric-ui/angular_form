@@ -28,6 +28,11 @@ export class EmployeeProfileComponent implements OnInit, DoCheck {
       this.msgIdicatorState = true;
       this.nameLoggedUser = userToken;
     }
+
+    if (!userToken) {
+      this.isSignIn = false;
+      this.msgIdicatorState = false;
+    }
   }
 
   openCard() {

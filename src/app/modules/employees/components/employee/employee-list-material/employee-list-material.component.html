@@ -4,7 +4,7 @@
     <button class="btn btn-add" mat-stroked-button (click)="openNewEmployeeFrom()">Add</button>
   </div>
 
-  <div class="container-list">
+  <div data-simplebar class="container-list">
     <table mat-table [dataSource]="soursData" matSort (matSortChange)="sortData($event)">
       <ng-container matColumnDef="id">
         <th mat-header-cell class="cell-id" *matHeaderCellDef mat-sort-header>id</th>

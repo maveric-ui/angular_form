@@ -59,8 +59,8 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
               this.router.navigateByUrl('main/employee');
               // this.matDialogRef.close();
             } else {
-              // this.signInForm.controls['name'].setErrors({'invalidValues': true});
-              // this.signInForm.controls['password'].setErrors({'invalidValues': true});
+              this.signInForm.controls['name'].setErrors({'invalidValues': true});
+              this.signInForm.controls['password'].setErrors({'invalidValues': true});
             }
           });
         }
