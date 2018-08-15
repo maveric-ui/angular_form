@@ -6,8 +6,6 @@ import { EmployeeComponent } from '../employees/components/employee/employee.com
 import { MailComponent } from '../mail/components/mail/mail.component';
 import { AuthGuard } from './services/auth.guard';
 
-
-
 const childRouters: Routes = [
   {path: 'employee', component: EmployeeComponent},
   {path: 'mail', component: MailComponent}

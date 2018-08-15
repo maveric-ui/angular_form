@@ -18,7 +18,7 @@ import {
   MatSelectModule,
   MatSnackBarModule,
   MatSortModule,
-  MatTableModule
+  MatTableModule,
 } from '@angular/material';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
@@ -27,6 +27,7 @@ import { EmployeeSignInFormComponent } from './components/employee/employee-sign
 import { EmployeeListMaterialComponent } from './components/employee/employee-list-material/employee-list-material.component';
 import { NotFoundedComponent } from '../main/components/not-founded/not-founded.component';
 import { EmployeesDataService } from './services/employees-data.service';
+import { EmployeeRoutingModule } from './employee-routing.module';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { EmployeesDataService } from './services/employees-data.service';
     MatSelectModule,
     MatSnackBarModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    EmployeeRoutingModule
   ],
   declarations: [
     EmployeeComponent,

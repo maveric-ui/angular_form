@@ -15,7 +15,8 @@ import {
   MatSelectModule,
   MatSnackBarModule,
   MatSortModule,
-  MatTableModule
+  MatTableModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { MainComponent } from './components/main/main.component';
 import { MainHeaderComponent } from './components/main/main-header/main-header.component';
@@ -43,6 +44,7 @@ import { EmployeesModule } from '../employees/employees.module';
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
+    MatProgressSpinnerModule,
     MainRoutingModule,
     EmployeesModule
   ],

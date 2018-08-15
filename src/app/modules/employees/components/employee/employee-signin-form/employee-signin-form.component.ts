@@ -1,9 +1,10 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../../../main/classes/user';
 import { AuthMainService } from '../../../../main/services/auth-main.service';
 import { Router } from '@angular/router';
+import { ShareService } from '../../../services/share.service';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
   constructor(private matDialogRef: MatDialogRef<EmployeeSignInFormComponent>,
               private fb: FormBuilder,
               private authMainService: AuthMainService,
+              private shareService: ShareService,
               private router: Router) {
   }
 
@@ -53,7 +55,6 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     });
   }
 
-
   protected authUserValidation(signInVal): void {
     if (signInVal.name && signInVal.password) {
       this.authMainService.signIn(signInVal.name).subscribe(
@@ -65,9 +66,13 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
           user.map((u) => {
             if (u.password === signInVal.password) {
               const token = `${u.name}`;
-              sessionStorage.setItem('userToken', token);
-              this.router.navigateByUrl('main/employee');
               this.matDialogRef.close();
+              this.shareService.emitChange(true);
+              setTimeout(() => {
+                this.shareService.emitChange(false);
+                sessionStorage.setItem('userToken', token);
+                this.router.navigateByUrl('main/employee');
+              }, 2000);
             } else {
               this.signInForm.controls['password'].setErrors({'invalidValues': true});
             }
