@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
-import { AuthMainService } from './auth-main.service';
+import { CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-  constructor(private authMainService: AuthMainService, private router: Router) {}
+export class AuthGuard implements CanActivateChild {
+  constructor( private router: Router ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.authMainService.signIn(name)) {
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): boolean {
+    const getUserToken = sessionStorage.getItem('userToken');
+
+    if (getUserToken) {
       return true;
+    } else {
+      this.router.navigate(['/main']);
     }
-    this.router.navigate(['./main']);
-    return false;
   }
 
 

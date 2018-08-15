@@ -11,15 +11,11 @@ export class AuthMainService {
 
   private url = environment.url;
 
-  redirectUrl: string;
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   signIn(name: string): Observable<User[]> {
     const urlUser = `${this.url}/accounts?name=${name}`;
     return this.http.get<User[]>(urlUser);
   }
-
 
 }

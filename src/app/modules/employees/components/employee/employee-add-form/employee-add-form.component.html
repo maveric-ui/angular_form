@@ -3,46 +3,55 @@
     <span class="title">Adding new employee</span>
   </div>
 
-  <form class="form" [formGroup]="">
+  <form class="form" [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit(addEmployeeForm.value)">
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Name</mat-placeholder>
-      <input matInput>
+      <input matInput formControlName="name" title="name" required>
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+        <mat-error *ngIf="name.hasError('required')">
+          {{errorMessages.required}}
+        </mat-error>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Position</mat-placeholder>
-      <input matInput>
+      <input matInput formControlName="position" title="position">
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Date of Birth</mat-placeholder>
-      <input matInput [matDatepicker]="birth" (click)="birth.open()">
+      <input matInput [matDatepicker]="birth" title="dateOfBirth" formControlName="dateOfBirth" required
+             [max]="currentDate" (click)="birth.open()">
       <mat-datepicker-toggle matSuffix [for]="birth" ></mat-datepicker-toggle>
       <mat-datepicker #birth></mat-datepicker>
+      <mat-error *ngIf="dateOfBirth.hasError('required')">{{errorMessages.required}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Hire Date</mat-placeholder>
-      <input matInput [matDatepicker]="hire" (click)="hire.open()">
+      <input matInput [matDatepicker]="hire" title="hireDate" formControlName="hireDate" required
+             [max]="currentDate" (click)="hire.open()">
       <mat-datepicker-toggle matSuffix [for]="hire"></mat-datepicker-toggle>
       <mat-datepicker #hire ></mat-datepicker>
+      <mat-error *ngIf="hireDate.hasError('required')">{{errorMessages.required}}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Address</mat-placeholder>
-      <input matInput>
+      <input matInput title="address" formControlName="address">
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">City</mat-placeholder>
-      <mat-select>
+      <mat-select formControlName="city">
         <mat-option *ngFor="let city of cities" value="city">{{city}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Country</mat-placeholder>
-      <mat-select>
+      <mat-select formControlName="country">
         <mat-option *ngFor="let country of countries" value="country">{{country}}</mat-option>
       </mat-select>
     </mat-form-field>

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, DoCheck } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-reactive-form',
@@ -7,19 +8,73 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./employee-add-form.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeAddFormComponent implements OnInit {
+export class EmployeeAddFormComponent implements OnInit, DoCheck {
 
   public countries: string[];
   public cities: string[];
+  public currentDate: Date;
 
-  constructor(private matDialogRef: MatDialogRef<EmployeeAddFormComponent> ) { }
+  public addEmployeeForm: FormGroup;
+  public errorMessages = {
+    required: 'This field is required',
+    invalidValues: 'Name or password is not correct'
+  };
+
+  public get name() { return this.addEmployeeForm.get('name'); }
+  public get dateOfBirth() { return this.addEmployeeForm.get('dateOfBirth'); }
+  public get hireDate() { return this.addEmployeeForm.get('hireDate'); }
+
+  constructor(private matDialogRef: MatDialogRef<EmployeeAddFormComponent>,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
     this.countries = ['Ukraine', 'United Kingdom', 'Japan', 'Germany', 'USA'];
     this.cities = ['Dnipro', 'London', 'Tokio', 'Berlin', 'New York'];
+    this.initAddEmployeeForm();
   }
 
-  close() {
+  ngDoCheck() {
+    this.currentDate = new Date();
+  }
+
+  private initAddEmployeeForm(): void {
+    this.addEmployeeForm = this.fb.group({
+      name: [null, [
+        Validators.required,
+      ]],
+      position: [null],
+      dateOfBirth: [null, [
+        Validators.required,
+      ]],
+      hireDate: [null, [
+        Validators.required,
+      ]],
+      address: [null],
+      city: [null],
+      country: [null]
+    });
+  }
+
+
+  onSubmit(newEmployee) {
+    const controls = this.addEmployeeForm.controls;
+
+    if (!this.addEmployeeForm.valid) {
+      for (const control in controls) {
+        if (this.addEmployeeForm.get(control)) {
+          this.addEmployeeForm.get(control).markAsTouched({onlySelf: true});
+          this.addEmployeeForm.get(control).markAsDirty({onlySelf: true});
+        }
+      }
+      return;
+    }
+
+    console.log(newEmployee);
+
+  }
+
+
+  close(): void {
     this.matDialogRef.close();
   }
 

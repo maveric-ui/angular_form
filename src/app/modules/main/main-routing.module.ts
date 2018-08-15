@@ -12,7 +12,7 @@ const childRouters: Routes = [
 ];
 
 const mainRoutes: Routes = [
-  {path: 'main', component: MainComponent, canActivate: [AuthGuard], children: childRouters },
+  {path: 'main', component: MainComponent, canActivateChild: [AuthGuard], children: childRouters },
 
 ];
 

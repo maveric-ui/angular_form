@@ -4,11 +4,12 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ShareService {
-  private emitChangeSource = new Subject<any>();
+  private emitChangeSource = new Subject<boolean>();
   changeEmitted$ = this.emitChangeSource.asObservable();
 
-  emitChange(change: any) {
+  emitChange(change: boolean) {
     this.emitChangeSource.next(change);
   }
 }

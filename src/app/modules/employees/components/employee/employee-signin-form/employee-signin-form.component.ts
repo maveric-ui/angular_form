@@ -22,13 +22,8 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
     invalidValues: 'Name or password is not correct'
   };
 
-  public get name() {
-    return this.signInForm.get('name');
-  }
-
-  public get password() {
-    return this.signInForm.get('password');
-  }
+  public get name() { return this.signInForm.get('name'); }
+  public get password() { return this.signInForm.get('password'); }
 
   constructor(private matDialogRef: MatDialogRef<EmployeeSignInFormComponent>,
               private fb: FormBuilder,
@@ -72,7 +67,7 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
                 this.shareService.emitChange(false);
                 sessionStorage.setItem('userToken', token);
                 this.router.navigateByUrl('main/employee');
-              }, 2000);
+              }, 2500);
             } else {
               this.signInForm.controls['password'].setErrors({'invalidValues': true});
             }

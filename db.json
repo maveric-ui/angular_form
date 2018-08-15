@@ -246,13 +246,13 @@
       "id": 0,
       "name": "test",
       "password": "test",
-      "status": "admin"
+      "role": "admin"
     },
     {
       "id": 1,
       "name": "aaa",
       "password": "aaa",
-      "status": "employee"
+      "role": "employee"
     }
   ]
 }
