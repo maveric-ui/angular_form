@@ -55,7 +55,11 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
   openNewEmployeeFrom() {
     const dialogRef = this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
     dialogRef.afterClosed().subscribe(result => {
-      this.sendNewEmployee.emit(result);
+      if (!result) {
+        return;
+      } else {
+        this.sendNewEmployee.emit(result);
+      }
     });
   }
 

@@ -1,4 +1,18 @@
 {
+  "accounts": [
+    {
+      "id": 0,
+      "name": "test",
+      "password": "test",
+      "role": "admin"
+    },
+    {
+      "id": 1,
+      "name": "aaa",
+      "password": "aaa",
+      "role": "employee"
+    }
+  ],
   "profiles": [
     {
       "id": 0,
@@ -239,20 +253,6 @@
       "address": "671 Vanderveer Place,  Ohio, 2033",
       "city": "Evergreen",
       "country": "Virgin Islands"
-    }
-  ],
-  "accounts": [
-    {
-      "id": 0,
-      "name": "test",
-      "password": "test",
-      "role": "admin"
-    },
-    {
-      "id": 1,
-      "name": "aaa",
-      "password": "aaa",
-      "role": "employee"
     }
   ]
 }

@@ -26,7 +26,6 @@
       <mat-datepicker-toggle matSuffix [for]="birth" ></mat-datepicker-toggle>
       <mat-datepicker #birth></mat-datepicker>
       <mat-error *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)">
-        {{errorMessages.invalid}}
         <mat-error *ngIf="dateOfBirth.hasError('required')">
           {{errorMessages.required}}
         </mat-error>
@@ -40,13 +39,12 @@
       <mat-datepicker-toggle matSuffix [for]="hire"></mat-datepicker-toggle>
       <mat-datepicker #hire ></mat-datepicker>
       <mat-error *ngIf="hireDate.invalid && (hireDate.dirty || hireDate.touched)">
-        {{errorMessages.invalid}}
         <mat-error *ngIf="hireDate.hasError('required')">
           {{errorMessages.required}}
         </mat-error>
-      </mat-error>
-      <mat-error *ngIf="hireDate.hasError('compareDatesInvalid')">
-        {{errorMessages.compareDatesInvalid}}
+        <mat-error *ngIf="hireDate.hasError('compareDatesInvalid')">
+          {{errorMessages.compareDatesInvalid}}
+        </mat-error>
       </mat-error>
     </mat-form-field>
 

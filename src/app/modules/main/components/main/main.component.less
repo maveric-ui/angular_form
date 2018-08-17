@@ -7,11 +7,31 @@
   background-color: rgba(0, 0, 0, .5);
   z-index: 200;
 
-  .mat-spinner {
+  .section-loader {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 35%;
-    left: 45%;
+    left: 40%;
+    color: @text-turtle-green;
+    text-transform: uppercase;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 18pt;
+
+    .mat-spinner circle {
+      stroke: @text-turtle-green;
+    }
   }
+
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .container {

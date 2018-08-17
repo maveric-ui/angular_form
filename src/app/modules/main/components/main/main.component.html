@@ -1,13 +1,17 @@
 <div class="loader" *ngIf="stateSpinner">
-  <mat-spinner class="mat-spinner"></mat-spinner>
+  <div class="section-loader">
+    <h1 class="header-loader">Please wait...</h1>
+    <mat-spinner class="mat-spinner"></mat-spinner>
+  </div>
 </div>
 
-<div class="container">
+<div class="container" [ngClass]="blur">
   <app-main-header></app-main-header>
   <section class="block-main">
     <app-main-sidebar></app-main-sidebar>
     <section class="block-employee">
       <router-outlet></router-outlet>
+      <app-main-startpage></app-main-startpage>
     </section>
   </section>
 </div>
