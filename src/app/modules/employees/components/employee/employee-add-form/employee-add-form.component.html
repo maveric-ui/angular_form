@@ -48,10 +48,7 @@
       <mat-error *ngIf="hireDate.hasError('compareDatesInvalid')">
         {{errorMessages.compareDatesInvalid}}
       </mat-error>
-
     </mat-form-field>
-
-    <!--<div *ngIf="addEmployeeForm.errors">{{addEmployeeForm.errors?.datesw | json}}</div>-->
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Address</mat-placeholder>
@@ -61,14 +58,14 @@
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">City</mat-placeholder>
       <mat-select formControlName="city">
-        <mat-option *ngFor="let city of cities" value="city">{{city}}</mat-option>
+        <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Country</mat-placeholder>
       <mat-select formControlName="country">
-        <mat-option *ngFor="let country of countries" value="country">{{country}}</mat-option>
+        <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
       </mat-select>
     </mat-form-field>
 

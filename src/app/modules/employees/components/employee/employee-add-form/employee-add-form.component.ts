@@ -26,8 +26,7 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck {
   public get dateOfBirth() { return this.addEmployeeForm.get('dateOfBirth'); }
   public get hireDate() { return this.addEmployeeForm.get('hireDate'); }
 
-  constructor(private matDialogRef: MatDialogRef<EmployeeAddFormComponent>,
-              private fb: FormBuilder) { }
+  constructor(private matDialogRef: MatDialogRef<EmployeeAddFormComponent>, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.countries = ['Ukraine', 'United Kingdom', 'Japan', 'Germany', 'USA'];
@@ -70,7 +69,6 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck {
 
   onSubmit(newEmployee) {
     const controls = this.addEmployeeForm.controls;
-
     if (!this.addEmployeeForm.valid) {
       for (const control in controls) {
         if (this.addEmployeeForm.get(control)) {
@@ -80,7 +78,7 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck {
       }
       return;
     }
-    console.log(newEmployee, this.currentDate);
+    this.matDialogRef.close(newEmployee);
   }
 
 

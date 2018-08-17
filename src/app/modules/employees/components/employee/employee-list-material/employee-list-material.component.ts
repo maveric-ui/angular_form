@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../../../classes/employee';
 import { MatDialog, MatSort, Sort } from '@angular/material';
 import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form.component';
@@ -12,10 +12,11 @@ import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form
 export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
 
   @Input() public employeeList: Employee[];
-  public soursData;
+  @Output() public sendNewEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
+  public soursData;
   sortedData: Employee[];
+  displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
 
   constructor(public dialog: MatDialog) {}
 
@@ -24,11 +25,7 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['employeeList']) {
-      // this.soursData = new MatTableDataSource(this.employeeList);
       this.soursData = this.employeeList;
-      // this.soursData.sort = this.sort;
-      // this.sortedData = this.soursData.slice();
-      // console.log(this.soursData);
     }
   }
 
@@ -56,7 +53,10 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges  {
   }
 
   openNewEmployeeFrom() {
-    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
+    const dialogRef = this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
+    dialogRef.afterClosed().subscribe(result => {
+      this.sendNewEmployee.emit(result);
+    });
   }
 
 }

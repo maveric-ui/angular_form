@@ -10,18 +10,23 @@ import { Observable } from 'rxjs';
 export class EmployeesDataService {
 
   private url = environment.url;
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'my-auth-token'
-    })
-  };
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type':  'application/json',
+  //     'Authorization': 'my-auth-token'
+  //   })
+  // };
 
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Employee[]> {
     const urlEmployee = `${this.url}/profiles/`;
     return this.http.get<Employee[]>(urlEmployee);
+  }
+
+  addEmployee (employee: Employee): Observable<Employee> {
+    const urlEmployee = `${this.url}/profiles/`;
+    return this.http.post<Employee>(urlEmployee, employee);
   }
 
 
