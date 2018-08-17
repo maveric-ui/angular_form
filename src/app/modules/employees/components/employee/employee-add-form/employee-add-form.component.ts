@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, DoCheck, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, DoCheck } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee-reactive-form',
@@ -9,12 +8,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./employee-add-form.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeAddFormComponent implements OnInit, DoCheck, OnDestroy {
+export class EmployeeAddFormComponent implements OnInit, DoCheck {
 
   public countries: string[];
   public cities: string[];
   public currentDate: Date;
-  private subscriber: Subscription;
 
   public addEmployeeForm: FormGroup;
   public errorMessages = {
@@ -56,23 +54,22 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck, OnDestroy {
       address: [null],
       city: [null],
       country: [null]
-    });
+    }, {validator: this.compareDatesValidation('dateOfBirth', 'hireDate')});
   }
 
-
-  private compareDatesValidation () {
-    const dateBirthValue = this.addEmployeeForm.controls['dateOfBirth'].value;
-    this.subscriber = this.addEmployeeForm.controls['hireDate'].valueChanges.subscribe((hireDate: Date) => {
-        if (hireDate.getDate() < dateBirthValue.getDate() || (dateBirthValue.getMonth() + 1) > (hireDate.getMonth() + 1)
-          || dateBirthValue.getDate() > hireDate.getDate()) {
-          this.addEmployeeForm.controls['hireDate'].setErrors({'compareDatesInvalid': true});
-        }
-    });
+  private compareDatesValidation (dateOfBirth: string, hireDate: string) {
+    return (group: FormGroup): {[key: string]: any} => {
+      const dB = group.controls[dateOfBirth];
+      const hd = group.controls[hireDate];
+      if (dB.value > hd.value) {
+        this.addEmployeeForm.controls['hireDate'].setErrors({'compareDatesInvalid': true});
+      }
+      return {};
+    };
   }
 
   onSubmit(newEmployee) {
     const controls = this.addEmployeeForm.controls;
-    this.compareDatesValidation();
 
     if (!this.addEmployeeForm.valid) {
       for (const control in controls) {
@@ -89,9 +86,5 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck, OnDestroy {
 
   close(): void {
     this.matDialogRef.close();
-  }
-
-  ngOnDestroy() {
-    this.subscriber.unsubscribe();
   }
 }

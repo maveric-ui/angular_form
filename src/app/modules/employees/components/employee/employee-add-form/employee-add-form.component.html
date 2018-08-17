@@ -48,7 +48,10 @@
       <mat-error *ngIf="hireDate.hasError('compareDatesInvalid')">
         {{errorMessages.compareDatesInvalid}}
       </mat-error>
+
     </mat-form-field>
+
+    <!--<div *ngIf="addEmployeeForm.errors">{{addEmployeeForm.errors?.datesw | json}}</div>-->
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Address</mat-placeholder>

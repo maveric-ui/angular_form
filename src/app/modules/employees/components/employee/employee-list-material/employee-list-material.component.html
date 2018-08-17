@@ -23,13 +23,13 @@
 
       <ng-container matColumnDef="dateOfBirth">
         <th mat-header-cell class="cell-dateOfBirth" *matHeaderCellDef mat-sort-header> Date Of Birth</th>
-        <td mat-cell class="cell-dateOfBirth" *matCellDef="let element"> {{element.dateOfBirth | date: 'dd.MM.yyyy'}}
+        <td mat-cell class="cell-dateOfBirth" *matCellDef="let element"> {{element.dateOfBirth | date: 'MM.dd.yyyy'}}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="hireDate">
         <th mat-header-cell class="cell-hireDate" *matHeaderCellDef mat-sort-header> Hire Date</th>
-        <td mat-cell class="cell-hireDate" *matCellDef="let element"> {{element.hireDate | date: 'dd.MM.yyyy'}}</td>
+        <td mat-cell class="cell-hireDate" *matCellDef="let element"> {{element.hireDate | date: 'MM.dd.yyyy'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="address">
