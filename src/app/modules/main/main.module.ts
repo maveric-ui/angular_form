@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
@@ -31,6 +32,7 @@ import { MainStartpageComponent } from './components/main/main-startpage/main-st
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatButtonToggleModule,

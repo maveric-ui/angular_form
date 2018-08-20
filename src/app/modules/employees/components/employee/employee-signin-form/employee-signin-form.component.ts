@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from '../../../../main/classes/user';
@@ -13,7 +13,7 @@ import { ShareService } from '../../../services/share.service';
   styleUrls: ['./employee-signin-form.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeSignInFormComponent implements OnInit, OnChanges {
+export class EmployeeSignInFormComponent implements OnInit {
 
   @Input() public userList: User[];
   public signInForm: FormGroup;
@@ -30,9 +30,6 @@ export class EmployeeSignInFormComponent implements OnInit, OnChanges {
               private authMainService: AuthMainService,
               private shareService: ShareService,
               private router: Router) {
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
   }
 
   ngOnInit() {

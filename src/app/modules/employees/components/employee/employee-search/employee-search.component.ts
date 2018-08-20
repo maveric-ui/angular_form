@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, DoCheck } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, DoCheck } from '@angular/core';
+import { FilterService } from '../../../../main/services/filter.service';
+
 
 @Component({
   selector: 'app-employee-search',
@@ -9,23 +11,29 @@ import { Component, OnInit, ViewEncapsulation, DoCheck } from '@angular/core';
 export class EmployeeSearchComponent implements OnInit, DoCheck {
 
   public isSignIn: boolean;
+  public searchWord: string;
 
-  constructor() { }
+  constructor(private filterService: FilterService) { }
 
   ngOnInit() {
     this.isSignIn = false;
   }
 
-  ngDoCheck() {
-    const userToken = sessionStorage.getItem('userToken');
-    if (userToken) {
-      this.isSignIn = true;
-    }
-
-    if (!userToken) {
-      this.isSignIn = false;
-    }
+  onSearchChange(searchValue: string) {
+    this.filterService.emitChange(searchValue);
   }
 
 
+  ngDoCheck() {
+    this.showHideSearch();
+  }
+
+  private showHideSearch() {
+    const userToken = sessionStorage.getItem('userToken');
+    if (userToken) {
+      this.isSignIn = true;
+    } else if (!userToken) {
+      this.isSignIn = false;
+    }
+  }
 }

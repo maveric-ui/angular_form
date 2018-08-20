@@ -22,7 +22,11 @@ export class MainComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   ngDoCheck() {
-    this.subscription = this.shareService.changeEmitted$.subscribe(data => {
+    this.startSpinner();
+  }
+
+  private startSpinner() {
+    this.subscription = this.shareService.changeEmitted$.subscribe((data) => {
       this.stateSpinner = data;
 
       if (this.stateSpinner) {
