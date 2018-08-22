@@ -3,31 +3,25 @@ import { MatSort } from '@angular/material';
 import { Observable, merge, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Employee } from '../../../classes/employee';
-import { EmployeesDataService } from '../../../services/employees-data.service';
-
-
 
 export class DataTableDataSource extends DataSource<Employee> {
   dataStream = new BehaviorSubject<Employee[]>(this.employeeList);
 
-  get data(): Employee[] { return this.dataStream.value; }
   set data (employees: Employee[]) { this.dataStream.next(employees); }
+  get data(): Employee[] { return this.dataStream.value; }
 
-
-  constructor(private employeesDataService: EmployeesDataService, private sort: MatSort, private employeeList) {
+  constructor(private sort: MatSort, private employeeList) {
     super();
   }
 
   addData(value) {
     const copiedData = this.data.slice();
-    this.data.push(value);
+    copiedData.push(value);
     this.data = copiedData;
     console.log(this.data);
   }
 
   connect(): Observable<Employee[]> {
-
-    //  return this.employeesDataService.getEmployees();
     const dataMutations = [
       this.dataStream,
       this.sort.sortChange

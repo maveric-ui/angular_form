@@ -30,11 +30,11 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges {
   dataSource: DataTableDataSource;
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
 
-  constructor( public dialog: MatDialog, private employeesDataService: EmployeesDataService ) {}
+  constructor( public dialog: MatDialog ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['employeeList']) {
-      this.dataSource = new DataTableDataSource( this.employeesDataService, this.sort, this.employeeList );
+      this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
     }
   }
 
