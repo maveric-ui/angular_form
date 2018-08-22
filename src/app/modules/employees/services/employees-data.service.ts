@@ -19,7 +19,12 @@ export class EmployeesDataService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees(searchWord: string): Observable<Employee[]> {
+  getEmployees(): Observable<Employee[]> {
+    const urlEmployee = `${this.url}/profiles/`;
+    return this.http.get<Employee[]>(urlEmployee);
+  }
+
+  filterEmployees(searchWord: string): Observable<Employee[]> {
     const urlEmployee = `${this.url}/profiles?q=${searchWord}`;
     return this.http.get<Employee[]>(urlEmployee);
   }

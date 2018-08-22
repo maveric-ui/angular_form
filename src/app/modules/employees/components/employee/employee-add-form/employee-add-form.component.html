@@ -6,10 +6,13 @@
   <form class="form" [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit(addEmployeeForm.value)">
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Name</mat-placeholder>
-      <input matInput formControlName="name" title="name" required>
+      <input matInput formControlName="name" title="name">
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
         <mat-error *ngIf="name.hasError('required')">
           {{errorMessages.required}}
+        </mat-error>
+        <mat-error *ngIf="name.hasError('minlength')">
+          {{errorMessages.minLength}}
         </mat-error>
       </mat-error>
     </mat-form-field>
@@ -21,7 +24,7 @@
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Date of Birth</mat-placeholder>
-      <input matInput [matDatepicker]="birth" title="dateOfBirth" formControlName="dateOfBirth" required
+      <input matInput [matDatepicker]="birth" title="dateOfBirth" formControlName="dateOfBirth"
              [max]="currentDate" (click)="birth.open()">
       <mat-datepicker-toggle matSuffix [for]="birth" ></mat-datepicker-toggle>
       <mat-datepicker #birth></mat-datepicker>
@@ -34,7 +37,7 @@
 
     <mat-form-field class="form-item" floatLabel="never">
       <mat-placeholder class="form-placeholder">Hire Date</mat-placeholder>
-      <input matInput [matDatepicker]="hire" title="hireDate" formControlName="hireDate" required
+      <input matInput [matDatepicker]="hire" title="hireDate" formControlName="hireDate"
              [max]="currentDate" (click)="hire.open()">
       <mat-datepicker-toggle matSuffix [for]="hire"></mat-datepicker-toggle>
       <mat-datepicker #hire ></mat-datepicker>

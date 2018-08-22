@@ -18,6 +18,7 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck {
   public errorMessages = {
     invalid: 'This field is invalid',
     required: 'This field is required',
+    minLength: 'This filed must have more then 2 charts',
     invalidValues: 'Name or password is not correct',
     compareDatesInvalid: 'Hire Date  can\'t be less then Date of Birth'
   };
@@ -42,6 +43,7 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck {
     this.addEmployeeForm = this.fb.group({
       name: [null, [
         Validators.required,
+        Validators.minLength(2)
       ]],
       position: [null],
       dateOfBirth: [null, [

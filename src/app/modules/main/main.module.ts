@@ -27,7 +27,6 @@ import { EmployeeSearchComponent } from '../employees/components/employee/employ
 import { EmployeeProfileComponent } from '../employees/components/employee/employee-profile/employee-profile.component';
 import { EmployeesModule } from '../employees/employees.module';
 import {AuthGuard} from './services/auth.guard';
-import { MainStartpageComponent } from './components/main/main-startpage/main-startpage.component';
 
 @NgModule({
   imports: [
@@ -60,8 +59,7 @@ import { MainStartpageComponent } from './components/main/main-startpage/main-st
     MainHeaderComponent,
     MainSidebarComponent,
     EmployeeSearchComponent,
-    EmployeeProfileComponent,
-    MainStartpageComponent
+    EmployeeProfileComponent
   ],
   providers: [AuthGuard]
 })

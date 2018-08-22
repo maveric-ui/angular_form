@@ -1,7 +1,20 @@
-import {Component, Input, OnInit, ViewChild, ViewEncapsulation, Output, EventEmitter, SimpleChanges, OnChanges, DoCheck} from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+  OnChanges
+} from '@angular/core';
 import { Employee } from '../../../classes/employee';
-import {MatDialog, MatSort, MatTableDataSource, Sort} from '@angular/material';
+import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form.component';
+import { DataTableDataSource } from './data-table-datasource';
+import { EmployeesDataService } from '../../../services/employees-data.service';
+
 
 @Component({
   selector: 'app-employee-list-material',
@@ -9,41 +22,37 @@ import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form
   styleUrls: ['./employee-list-material.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EmployeeListMaterialComponent implements OnInit, OnChanges, DoCheck {
+export class EmployeeListMaterialComponent implements OnInit, OnChanges {
 
   @Input() employeeList: Employee[];
   @Output() public sendNewEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
   @ViewChild(MatSort) sort: MatSort;
-  dataSource;
+  dataSource: DataTableDataSource;
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
 
-  constructor(public dialog: MatDialog) {
-  }
-
-  ngOnInit() {
-
-  }
+  constructor( public dialog: MatDialog, private employeesDataService: EmployeesDataService ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['employeeList']) {
-      this.dataSource = new MatTableDataSource(this.employeeList);
-      this.dataSource.sort = this.sort;
+      this.dataSource = new DataTableDataSource( this.employeesDataService, this.sort, this.employeeList );
     }
   }
 
-  ngDoCheck() {
-   // this.dataSource = this.employeeList;
+  ngOnInit() {
+    // this.dataSource = new DataTableDataSource(this.employeesDataService, this.sort, this.employeeList);
   }
 
   openNewEmployeeFrom() {
-    const dialogRef = this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
-    dialogRef.afterClosed().subscribe(result => {
+    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false}
+      )
+      .afterClosed().subscribe(result => {
       if (!result) {
         return;
-      } else {
-        this.sendNewEmployee.emit(result);
       }
+      this.sendNewEmployee.emit(result);
+      this.dataSource.addData(result);
     });
   }
-
 }
+
+

@@ -15,7 +15,6 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   public employees: Employee[];
   private subscription: Subscription;
   public isSignIn: boolean;
-  private searchWord: string;
 
   constructor(private employeesDataService: EmployeesDataService, private filterService: FilterService) { }
 
@@ -23,18 +22,18 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getEmployeeData();
     this.isSignIn = false;
-    this.getSearchValue();
+    this.filterEmployeeList();
   }
 
-  getSearchValue() {
+  filterEmployeeList() {
     this.subscription = this.filterService.emitChnages$.subscribe( (searchValue) => {
-      debugger
-      this.searchWord = searchValue;
+      this.subscription = this.employeesDataService.filterEmployees(searchValue)
+        .subscribe((data: Employee[]) => {this.employees = data; });
     });
   }
 
   getEmployeeData() {
-    this.subscription = this.employeesDataService.getEmployees(this.searchWord)
+    this.subscription = this.employeesDataService.getEmployees()
       .subscribe((data: Employee[]) => { this.employees = data; });
   }
 
@@ -45,6 +44,5 @@ export class EmployeeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-}
-
+  }
 }
