@@ -7,14 +7,14 @@ import {
   Output,
   EventEmitter,
   SimpleChanges,
-  OnChanges
+  OnChanges,
+  OnDestroy
 } from '@angular/core';
 import { Employee } from '../../../classes/employee';
 import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form.component';
 import { DataTableDataSource } from './data-table-datasource';
-import { EmployeesDataService } from '../../../services/employees-data.service';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee-list-material',
@@ -30,28 +30,17 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges {
   dataSource: DataTableDataSource;
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
 
-  constructor( public dialog: MatDialog ) {}
+  constructor( ) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['employeeList']) {
+    const changedValue = changes['employeeList'];
+    if (changedValue) {
       this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
     }
   }
 
   ngOnInit() {
-    // this.dataSource = new DataTableDataSource(this.employeesDataService, this.sort, this.employeeList);
-  }
-
-  openNewEmployeeFrom() {
-    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false}
-      )
-      .afterClosed().subscribe(result => {
-      if (!result) {
-        return;
-      }
-      this.sendNewEmployee.emit(result);
-      this.dataSource.addData(result);
-    });
+    this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
   }
 }
 

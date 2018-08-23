@@ -15,10 +15,9 @@ export class DataTableDataSource extends DataSource<Employee> {
   }
 
   addData(value) {
-    const copiedData = this.data.slice();
+    const copiedData = this.data;
     copiedData.push(value);
     this.data = copiedData;
-    console.log(this.data);
   }
 
   connect(): Observable<Employee[]> {
@@ -28,7 +27,7 @@ export class DataTableDataSource extends DataSource<Employee> {
     ];
 
     return merge(...dataMutations).pipe(map(() => {
-      return this.getSortedData([...this.data]);
+      return this.getSortedData(this.data);
     }));
   }
 
@@ -40,7 +39,7 @@ export class DataTableDataSource extends DataSource<Employee> {
     }
 
     return data.sort((a, b) => {
-      const isAsc = this.sort.direction === 'asc';
+      const isAsc = this.sort.direction === 'desc';
       switch (this.sort.active) {
         case 'id': return compare(+a.id, +b.id, isAsc);
         case 'name': return compare(a.name, b.name, isAsc);

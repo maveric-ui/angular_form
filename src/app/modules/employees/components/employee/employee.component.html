@@ -1,2 +1,9 @@
-<app-employee-list-material [employeeList]="employees" (sendNewEmployee)="pushEmployee($event)">
-</app-employee-list-material>
+<div class="container-employee">
+  <div class="container-employee-header">
+    <p class="name-header-employee">Employees</p>
+    <button class="btn btn-add" mat-stroked-button (click)="openNewEmployeeFrom()">Add</button>
+  </div>
+
+  <app-employee-list-material [employeeList]="employees" (sendNewEmployee)="pushEmployee($event)">
+  </app-employee-list-material>
+</div>

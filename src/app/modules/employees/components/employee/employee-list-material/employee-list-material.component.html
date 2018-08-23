@@ -1,9 +1,4 @@
 <div class="container-list">
-  <div class="container-list-header">
-    <p class="name-header-list">Employees</p>
-    <button class="btn btn-add" mat-stroked-button (click)="openNewEmployeeFrom()">Add</button>
-  </div>
-
   <div data-simplebar class="container-list">
     <table mat-table [dataSource]="dataSource" matSort >
       <ng-container matColumnDef="id">

@@ -3,6 +3,8 @@ import { Employee } from '../../classes/employee';
 import { EmployeesDataService } from '../../services/employees-data.service';
 import { Subscription } from 'rxjs';
 import { FilterService } from '../../../main/services/filter.service';
+import {EmployeeAddFormComponent} from './employee-add-form/employee-add-form.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-employee',
@@ -16,7 +18,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   public isSignIn: boolean;
 
-  constructor(private employeesDataService: EmployeesDataService, private filterService: FilterService) { }
+  constructor(private employeesDataService: EmployeesDataService, private filterService: FilterService,  public dialog: MatDialog) { }
 
 
   ngOnInit() {
@@ -38,8 +40,12 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
 
   pushEmployee(newEmployee: Employee) {
-    this.employeesDataService.addEmployee(newEmployee)
+    this.subscription = this.employeesDataService.addEmployee(newEmployee)
       .subscribe(employee => { this.employees.push(employee); });
+  }
+
+  openNewEmployeeFrom() {
+    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
   }
 
   ngOnDestroy() {
