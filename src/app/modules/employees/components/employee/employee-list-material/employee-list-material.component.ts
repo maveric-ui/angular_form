@@ -4,11 +4,8 @@ import {
   OnInit,
   ViewChild,
   ViewEncapsulation,
-  Output,
-  EventEmitter,
   SimpleChanges,
-  OnChanges,
-  OnDestroy
+  OnChanges
 } from '@angular/core';
 import { Employee } from '../../../classes/employee';
 import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
@@ -25,9 +22,9 @@ import { Subscription } from 'rxjs';
 export class EmployeeListMaterialComponent implements OnInit, OnChanges {
 
   @Input() employeeList: Employee[];
-  @Output() public sendNewEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: DataTableDataSource;
+  // dataSource: DataTableDataSource;
+  dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
 
   constructor( ) {}
@@ -35,12 +32,16 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const changedValue = changes['employeeList'];
     if (changedValue) {
-      this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
+      // this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
+      this.dataSource = new MatTableDataSource<any>(this.employeeList);
+      this.dataSource.sort = this.sort;
     }
   }
 
   ngOnInit() {
-    this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
+    this.sort.start = 'desc';
+    // this.dataSource = new DataTableDataSource( this.sort, this.employeeList );
+    // this.dataSource = new MatTableDataSource(this.employeeList);
   }
 }
 

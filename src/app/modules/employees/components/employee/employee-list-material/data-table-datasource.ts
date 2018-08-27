@@ -14,12 +14,6 @@ export class DataTableDataSource extends DataSource<Employee> {
     super();
   }
 
-  addData(value) {
-    const copiedData = this.data;
-    copiedData.push(value);
-    this.data = copiedData;
-  }
-
   connect(): Observable<Employee[]> {
     const dataMutations = [
       this.dataStream,

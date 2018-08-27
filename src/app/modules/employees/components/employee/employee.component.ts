@@ -3,8 +3,8 @@ import { Employee } from '../../classes/employee';
 import { EmployeesDataService } from '../../services/employees-data.service';
 import { Subscription } from 'rxjs';
 import { FilterService } from '../../../main/services/filter.service';
-import {EmployeeAddFormComponent} from './employee-add-form/employee-add-form.component';
-import {MatDialog} from '@angular/material';
+import { EmployeeAddFormComponent } from './employee-add-form/employee-add-form.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-employee',
@@ -39,13 +39,13 @@ export class EmployeeComponent implements OnInit, OnDestroy {
       .subscribe((data: Employee[]) => { this.employees = data; });
   }
 
-  pushEmployee(newEmployee: Employee) {
-    this.subscription = this.employeesDataService.addEmployee(newEmployee)
-      .subscribe(employee => { this.employees.push(employee); });
-  }
-
-  openNewEmployeeFrom() {
-    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false});
+  pushEmployee() {
+    this.subscription = this.dialog.open(EmployeeAddFormComponent, {autoFocus: false})
+      .afterClosed().subscribe((newEmployee: Employee) => {
+        if (!newEmployee) { return; }
+        this.subscription = this.employeesDataService.addEmployee(newEmployee)
+          .subscribe(employee => { this.employees.push(employee); });
+    });
   }
 
   ngOnDestroy() {

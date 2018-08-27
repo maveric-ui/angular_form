@@ -2,43 +2,67 @@
   <div data-simplebar class="container-list">
     <table mat-table [dataSource]="dataSource" matSort >
       <ng-container matColumnDef="id">
-        <th mat-header-cell class="cell-id" *matHeaderCellDef mat-sort-header>id</th>
+        <th mat-header-cell class="cell-id" *matHeaderCellDef mat-sort-header>
+          id
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-id" *matCellDef="let element"> {{element.id}}</td>
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell class="cell-name" *matHeaderCellDef mat-sort-header> Name</th>
+        <th mat-header-cell class="cell-name" *matHeaderCellDef mat-sort-header>
+          Name
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-name" *matCellDef="let element"> {{element.name}}</td>
       </ng-container>
 
       <ng-container matColumnDef="position">
-        <th mat-header-cell class="cell-position" *matHeaderCellDef mat-sort-header> Position</th>
+        <th mat-header-cell class="cell-position" *matHeaderCellDef mat-sort-header>
+          Position
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-position" *matCellDef="let element"> {{element.position}}</td>
       </ng-container>
 
       <ng-container matColumnDef="dateOfBirth">
-        <th mat-header-cell class="cell-dateOfBirth" *matHeaderCellDef mat-sort-header> Date Of Birth</th>
+        <th mat-header-cell class="cell-dateOfBirth" *matHeaderCellDef mat-sort-header>
+          Date Of Birth
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-dateOfBirth" *matCellDef="let element"> {{element.dateOfBirth | date: 'MM.dd.yyyy'}}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="hireDate">
-        <th mat-header-cell class="cell-hireDate" *matHeaderCellDef mat-sort-header> Hire Date</th>
+        <th mat-header-cell class="cell-hireDate" *matHeaderCellDef mat-sort-header>
+          Hire Date
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-hireDate" *matCellDef="let element"> {{element.hireDate | date: 'MM.dd.yyyy'}}</td>
       </ng-container>
 
       <ng-container matColumnDef="address">
-        <th mat-header-cell class="cell-address" *matHeaderCellDef mat-sort-header> Address</th>
+        <th mat-header-cell class="cell-address" *matHeaderCellDef mat-sort-header>
+          Address
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-address" *matCellDef="let element"> {{element.address}}</td>
       </ng-container>
 
       <ng-container matColumnDef="city">
-        <th mat-header-cell class="cell-city" *matHeaderCellDef mat-sort-header> City</th>
+        <th mat-header-cell class="cell-city" *matHeaderCellDef mat-sort-header>
+          City
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-city" *matCellDef="let element"> {{element.city}}</td>
       </ng-container>
 
       <ng-container matColumnDef="country">
-        <th mat-header-cell class="cell-country" *matHeaderCellDef mat-sort-header> Country</th>
+        <th mat-header-cell class="cell-country" *matHeaderCellDef mat-sort-header>
+          Country
+          <div class="arrow"></div>
+        </th>
         <td mat-cell class="cell-country" *matCellDef="let element"> {{element.country}}</td>
       </ng-container>
 

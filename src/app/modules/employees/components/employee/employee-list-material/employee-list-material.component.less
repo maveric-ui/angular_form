@@ -1,6 +1,38 @@
 @import "_colors.less";
 @import "_mixins.less";
 
+
+.mat-sort-header-stem {
+  background: none;
+  display: none!important;
+}
+
+.mat-sort-header-pointer-middle{
+  background: none;
+  display: none!important;
+}
+
+.mat-sort-header-pointer-left {
+  background: none;
+  display: none!important;
+}
+.mat-sort-header-pointer-right {
+  background: none;
+  display: none!important;
+}
+
+
+.mat-sort-header-container {
+  // background: url("/assets/img/arrow-down.svg") no-repeat !important;
+}
+
+.mat-sort-header-button {
+  //width: 100% !important;
+  // background: url("/assets/img/arrow-down.svg") no-repeat 5px 5px !important;
+}
+
+
+
 .container-list {
   height: 100%;
 
@@ -30,14 +62,37 @@
         padding-right: 20px;
       }
 
-      button {
+      .mat-sort-header-button {
         text-transform: uppercase;
       }
 
-      .mat-sort-header-arrow {
+      .arrow {
+        width: 13px;
+        height: 8px;
         margin: 0 5px;
+        position: relative;
+        background: url("/assets/img/arrow-down.svg") no-repeat;
       }
     }
+
+    th.mat-header-cell[aria-sort="ascending"] {
+        .arrow {
+          width: 13px;
+          height: 8px;
+          position: relative;
+          background: url("/assets/img/arrow-up.svg") no-repeat;
+        }
+    }
+
+    th.mat-header-cell[aria-sort="descending"] {
+      .arrow {
+        width: 13px;
+        height: 8px;
+        position: relative;
+        background: url("/assets/img/arrow-down.svg") no-repeat;
+      }
+    }
+
 
     tr.mat-row {
       height: 40px;
@@ -65,15 +120,15 @@
     }
 
     .cell-id {
-      width: 36px;
+      width: 56px;
     }
 
     .cell-dateOfBirth {
-      width: 143px;
+      width: 162px
     }
 
     .cell-hireDate {
-      width: 107px;
+      width: 126px;
     }
 
     .cell-city {
