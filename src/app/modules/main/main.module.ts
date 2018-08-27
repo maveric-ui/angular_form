@@ -26,7 +26,9 @@ import { MainRoutingModule } from './main-routing.module';
 import { EmployeeSearchComponent } from '../employees/components/employee/employee-search/employee-search.component';
 import { EmployeeProfileComponent } from '../employees/components/employee/employee-profile/employee-profile.component';
 import { EmployeesModule } from '../employees/employees.module';
-import {AuthGuard} from './services/auth.guard';
+import { AuthGuard } from './services/auth.guard';
+import { NotFoundedComponent } from './components/not-founded/not-founded.component';
+
 
 @NgModule({
   imports: [
@@ -59,7 +61,8 @@ import {AuthGuard} from './services/auth.guard';
     MainHeaderComponent,
     MainSidebarComponent,
     EmployeeSearchComponent,
-    EmployeeProfileComponent
+    EmployeeProfileComponent,
+    NotFoundedComponent
   ],
   providers: [AuthGuard]
 })

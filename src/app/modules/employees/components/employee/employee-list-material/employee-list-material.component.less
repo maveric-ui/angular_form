@@ -1,26 +1,25 @@
 @import "_colors.less";
 @import "_mixins.less";
 
-
 .mat-sort-header-stem {
   background: none;
-  display: none!important;
+  display: none !important;
 }
 
-.mat-sort-header-pointer-middle{
+.mat-sort-header-pointer-middle {
   background: none;
-  display: none!important;
+  display: none !important;
 }
 
 .mat-sort-header-pointer-left {
   background: none;
-  display: none!important;
-}
-.mat-sort-header-pointer-right {
-  background: none;
-  display: none!important;
+  display: none !important;
 }
 
+.mat-sort-header-pointer-right {
+  background: none;
+  display: none !important;
+}
 
 .mat-sort-header-container {
   // background: url("/assets/img/arrow-down.svg") no-repeat !important;
@@ -30,8 +29,6 @@
   //width: 100% !important;
   // background: url("/assets/img/arrow-down.svg") no-repeat 5px 5px !important;
 }
-
-
 
 .container-list {
   height: 100%;
@@ -44,7 +41,6 @@
   .mat-table {
     width: 100%;
     table-layout: fixed;
-
 
     th.mat-header-cell {
       font-size: 16px;
@@ -72,16 +68,18 @@
         margin: 0 5px;
         position: relative;
         background: url("/assets/img/arrow-down.svg") no-repeat;
+        transition: 1s;
       }
     }
 
     th.mat-header-cell[aria-sort="ascending"] {
-        .arrow {
-          width: 13px;
-          height: 8px;
-          position: relative;
-          background: url("/assets/img/arrow-up.svg") no-repeat;
-        }
+      .arrow {
+        width: 13px;
+        height: 8px;
+        position: relative;
+        background: url("/assets/img/arrow-up.svg") no-repeat;
+        transition: 1s;
+      }
     }
 
     th.mat-header-cell[aria-sort="descending"] {
@@ -90,9 +88,9 @@
         height: 8px;
         position: relative;
         background: url("/assets/img/arrow-down.svg") no-repeat;
+        transition: 1s;
       }
     }
-
 
     tr.mat-row {
       height: 40px;
@@ -108,7 +106,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       border-bottom: 5px solid @background-light-grey-three;
-
 
       &:first-child {
         padding-left: 20px;

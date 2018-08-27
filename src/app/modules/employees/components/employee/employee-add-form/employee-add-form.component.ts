@@ -80,7 +80,7 @@ export class EmployeeAddFormComponent implements OnInit, DoCheck {
       }
       return;
     }
-    this.matDialogRef.close(newEmployee);
+   this.matDialogRef.close(newEmployee);
   }
 
 
