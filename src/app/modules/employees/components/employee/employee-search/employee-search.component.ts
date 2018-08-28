@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation, DoCheck } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, DoCheck, SimpleChanges} from '@angular/core';
 import { FilterService } from '../../../../main/services/filter.service';
 
 
@@ -22,7 +22,6 @@ export class EmployeeSearchComponent implements OnInit, DoCheck {
   onSearchChange(searchValue: string) {
     this.filterService.emitChange(searchValue);
   }
-
 
   ngDoCheck() {
     this.showHideSearch();

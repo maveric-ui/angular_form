@@ -30,14 +30,15 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges, DoCheck
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    const log: Employee[] = [];
+    const log = [];
     for (const propName in changes) {
       const chng = changes[propName];
       const cur = JSON.stringify(chng.currentValue);
-      console.log(cur);
+      // console.log(cur);
+      // log.push(cur);
     }
 
-    // this.employeeList.push(log);
+    // this.employeeList.push(cur);
 
 
     this.dataSource = new MatTableDataSource<any>(this.employeeList);

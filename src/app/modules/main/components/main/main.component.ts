@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, OnDestroy, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewEncapsulation} from '@angular/core';
 import { ShareService } from '../../../employees/services/share.service';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./main.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class MainComponent implements OnInit, DoCheck, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy {
 
   public stateSpinner: boolean;
   public blur: string;
@@ -19,9 +19,6 @@ export class MainComponent implements OnInit, DoCheck, OnDestroy {
 
   ngOnInit() {
     this.stateSpinner = false;
-  }
-
-  ngDoCheck() {
     this.startSpinner();
   }
 
