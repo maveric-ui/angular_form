@@ -4,7 +4,7 @@ import { Observable, merge, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Employee } from '../../../classes/employee';
 
-export class DataTableDataSource extends DataSource<Employee> {
+export class EmployeeDataSource extends DataSource<Employee> {
   dataStream = new BehaviorSubject<Employee[]>(this.employeeList);
 
   set data (employees: Employee[]) { this.dataStream.next(employees); }
@@ -33,7 +33,7 @@ export class DataTableDataSource extends DataSource<Employee> {
     }
 
     return data.sort((a, b) => {
-      const isAsc = this.sort.direction === 'desc';
+      const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'id': return compare(+a.id, +b.id, isAsc);
         case 'name': return compare(a.name, b.name, isAsc);

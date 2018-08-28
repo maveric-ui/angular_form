@@ -1,10 +1,10 @@
-import {Component, OnInit, OnDestroy, OnChanges, SimpleChanges} from '@angular/core';
-import {Employee} from '../../classes/employee';
-import {EmployeesDataService} from '../../services/employees-data.service';
-import {Subscription} from 'rxjs';
-import {FilterService} from '../../../main/services/filter.service';
-import {EmployeeAddFormComponent} from './employee-add-form/employee-add-form.component';
-import {MatDialog} from '@angular/material';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Employee } from '../../classes/employee';
+import { EmployeesDataService } from '../../services/employees-data.service';
+import { Subscription } from 'rxjs';
+import { FilterService } from '../../../main/services/filter.service';
+import { EmployeeAddFormComponent } from './employee-add-form/employee-add-form.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-employee',
@@ -12,7 +12,7 @@ import {MatDialog} from '@angular/material';
   styleUrls: ['./employee.component.less']
 })
 
-export class EmployeeComponent implements OnInit, OnChanges, OnDestroy {
+export class EmployeeComponent implements OnInit, OnDestroy {
 
   public employees: Employee[];
   private subscription: Subscription;
@@ -21,15 +21,6 @@ export class EmployeeComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private employeesDataService: EmployeesDataService,
               private filterService: FilterService,
               public dialog: MatDialog) {
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      const chng = changes[propName];
-      const cur  = JSON.stringify(chng.currentValue);
-      const prev = JSON.stringify(chng.previousValue);
-      console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-    }
   }
 
   ngOnInit() {
@@ -41,32 +32,24 @@ export class EmployeeComponent implements OnInit, OnChanges, OnDestroy {
   filterEmployeeList() {
     this.subscription = this.filterService.emitChnages$.subscribe((searchValue) => {
       this.subscription = this.employeesDataService.filterEmployees(searchValue)
-        .subscribe((data: Employee[]) => {
-          this.employees = data;
-        });
+        .subscribe((data: Employee[]) => { this.employees = data; });
     });
   }
 
   getEmployeeData() {
     this.subscription = this.employeesDataService.getEmployees()
-      .subscribe((data: Employee[]) => {
-        this.employees = data;
-      });
+      .subscribe((data: Employee[]) => { this.employees = data; });
   }
 
   pushNewEmployee(newEmployee) {
     this.subscription = this.employeesDataService.addEmployee(newEmployee)
-      .subscribe((employee: Employee) => {
-        this.employees.push(employee);
-      });
+      .subscribe((employee: Employee) => { this.employees.push(employee); });
   }
 
   getNewEmployeeFromDialog() {
     this.dialog.open(EmployeeAddFormComponent, {autoFocus: false})
       .afterClosed().subscribe((newEmployee) => {
-      if (!newEmployee) {
-        return;
-      }
+      if (!newEmployee) { return; }
       this.pushNewEmployee(newEmployee);
     });
   }

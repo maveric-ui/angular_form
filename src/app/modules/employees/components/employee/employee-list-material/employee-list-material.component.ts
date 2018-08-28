@@ -4,13 +4,14 @@ import {
   OnInit,
   ViewChild,
   ViewEncapsulation,
-  OnChanges, DoCheck, SimpleChanges
+  OnChanges, DoCheck, SimpleChange
 } from '@angular/core';
-import {Employee} from '../../../classes/employee';
-import {MatDialog, MatSort, MatTableDataSource} from '@angular/material';
-import {EmployeeAddFormComponent} from '../employee-add-form/employee-add-form.component';
-import {DataTableDataSource} from './data-table-datasource';
-import {Subscription} from 'rxjs';
+import { DataSource } from '@angular/cdk/collections';
+import { Employee } from '../../../classes/employee';
+import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
+import { Observable } from 'rxjs';
+import { EmployeeDataSource } from './data-table-datasource';
+
 
 @Component({
   selector: 'app-employee-list-material',
@@ -22,33 +23,22 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges, DoCheck
 
   @Input() employeeList: Employee[];
   @ViewChild(MatSort) sort: MatSort;
-  // dataSource: DataTableDataSource;
-  dataSource: MatTableDataSource<any>;
+  dataSource = new EmployeeDataSource(this.sort, this.employeeList);
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
-  changeLog = [];
+
 
   constructor() {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    const log = [];
-    for (const propName in changes) {
-      const chng = changes[propName];
-      const cur = JSON.stringify(chng.currentValue);
-      // console.log(cur);
-      // log.push(cur);
-    }
-
-    // this.employeeList.push(cur);
-
-
-    this.dataSource = new MatTableDataSource<any>(this.employeeList);
-    this.dataSource.sort = this.sort;
+  ngOnChanges() {
+    this.dataSource = new EmployeeDataSource(this.sort, this.employeeList);
+    // this.dataSource = new MatTableDataSource<any>(this.employeeList);
+    // this.dataSource.sort = this.sort;
   }
 
   ngOnInit() {
-    this.sort.start = 'desc';
-    this.dataSource = new MatTableDataSource<any>(this.employeeList);
-
+    // this.sort.start = 'desc';
+    this.dataSource = new EmployeeDataSource(this.sort, this.employeeList);
+    // this.dataSource = new MatTableDataSource<any>(this.employeeList);
   }
 
   ngDoCheck() {
