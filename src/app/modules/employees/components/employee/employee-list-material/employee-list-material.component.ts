@@ -1,17 +1,6 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-  ViewEncapsulation,
-  OnChanges, DoCheck, SimpleChange
-} from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
+import { Component, Input, OnInit, ViewChild, ViewEncapsulation, OnChanges, DoCheck } from '@angular/core';
 import { Employee } from '../../../classes/employee';
-import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
-import { Observable } from 'rxjs';
-import { EmployeeDataSource } from './data-table-datasource';
-
+import { MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-employee-list-material',
@@ -23,28 +12,26 @@ export class EmployeeListMaterialComponent implements OnInit, OnChanges, DoCheck
 
   @Input() employeeList: Employee[];
   @ViewChild(MatSort) sort: MatSort;
-  dataSource = new EmployeeDataSource(this.sort, this.employeeList);
+  dataSource: MatTableDataSource<Employee>;
   displayedColumns: string[] = ['id', 'name', 'position', 'dateOfBirth', 'hireDate', 'address', 'city', 'country'];
-
 
   constructor() {}
 
   ngOnChanges() {
-    this.dataSource = new EmployeeDataSource(this.sort, this.employeeList);
-    // this.dataSource = new MatTableDataSource<any>(this.employeeList);
-    // this.dataSource.sort = this.sort;
+    this.dataSource = new MatTableDataSource<Employee>(this.employeeList);
+    this.dataSource.sort = this.sort;
   }
 
   ngOnInit() {
-    // this.sort.start = 'desc';
-    this.dataSource = new EmployeeDataSource(this.sort, this.employeeList);
-    // this.dataSource = new MatTableDataSource<any>(this.employeeList);
+    this.dataSource = new MatTableDataSource<Employee>(this.employeeList);
+    this.sort.start = 'desc';
   }
 
   ngDoCheck() {
-    // this.dataSource = new MatTableDataSource(this.employeeList);
-    // this.dataSource = new MatTableDataSource<any>(this.employeeList);
-    // this.dataSource.sort = this.sort;
+    if (this.employeeList) {
+      this.dataSource = new MatTableDataSource<Employee>(this.employeeList);
+      this.dataSource.sort = this.sort;
+    }
   }
 }
 

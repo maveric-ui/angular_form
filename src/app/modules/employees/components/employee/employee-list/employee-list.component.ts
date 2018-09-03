@@ -1,8 +1,7 @@
-import {Component, OnInit, Input, ChangeDetectionStrategy, AfterContentInit, AfterViewInit} from '@angular/core';
-import {Employee} from '../../../classes/employee';
-import {MatDialog, Sort} from '@angular/material';
-import {EmployeeAddFormComponent} from '../employee-add-form/employee-add-form.component';
-import {Observable} from 'rxjs';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Employee } from '../../../classes/employee';
+import { MatDialog } from '@angular/material';
+import { EmployeeAddFormComponent } from '../employee-add-form/employee-add-form.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -10,7 +9,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./employee-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EmployeeListComponent implements OnInit, AfterViewInit {
+export class EmployeeListComponent implements OnInit {
 
   @Input() public employeeList: Employee[];
   private stateSort: boolean;
@@ -23,10 +22,6 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.stateSort = false;
-  }
-
-  ngAfterViewInit() {
-
   }
 
   compare(sortField) {

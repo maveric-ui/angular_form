@@ -4,7 +4,7 @@ import { EmployeesDataService } from '../../services/employees-data.service';
 import { Subscription } from 'rxjs';
 import { FilterService } from '../../../main/services/filter.service';
 import { EmployeeAddFormComponent } from './employee-add-form/employee-add-form.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-employee',
@@ -17,6 +17,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   public employees: Employee[];
   private subscription: Subscription;
   public isSignIn: boolean;
+  public employeesDS = new MatTableDataSource<any>();
 
   constructor(private employeesDataService: EmployeesDataService,
               private filterService: FilterService,
@@ -47,8 +48,10 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
 
   getNewEmployeeFromDialog() {
-    this.dialog.open(EmployeeAddFormComponent, {autoFocus: false})
-      .afterClosed().subscribe((newEmployee) => {
+    this.subscription = this.dialog.open(EmployeeAddFormComponent, {
+      autoFocus: false,
+      data: {employee: this.employees}
+    }).afterClosed().subscribe((newEmployee) => {
       if (!newEmployee) { return; }
       this.pushNewEmployee(newEmployee);
     });
